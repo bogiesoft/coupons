@@ -1,0 +1,332 @@
+<script src="<?php echo GJ_STATIC_JS."gj.js"?>"></script>
+<div class="kkfm_r_inner">
+    <?php echo CHtml::beginForm();?>
+        <div class="top">
+            <div class="name">添加会员等级</div>
+        </div>
+        <div class="contant clearfix membership">
+            <div class="coupon_l level_l">
+                <div class="title">优惠券</div>
+                <div class="hd">
+                    <img src="<?php echo GJ_STATIC_IMAGES.'card/style1.png'?>" id="cover_img">
+                    <div class="hd_inner">
+                        <h3 id="membership_card_name">会员卡名称</h3>
+                        <span id="dengji_card_name">&nbsp;</span>
+                    </div>
+                </div>
+                <div class="barCode">
+                    <img src="<?php echo GJ_STATIC_IMAGES?>code.png">
+                    <p>123121513123</p>
+                </div>
+                <div class="detail">
+                    <dl>
+                        <dt>会员特权</dt>
+                        <dd class="discount">&nbsp;</dd>
+                    </dl>
+                    <dl>
+                        <dt>使用说明</dt>
+                        <div class="dd">
+                        
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="coupon_r level_r">
+                <div class="bg">
+                    <div class="section">
+                        <div class="title">会员等级</div>
+                    </div>
+                    <div class="section">
+                        <dl class="clearfix">
+                            <dt class="especial">会员等级名称</dt>
+                            <dd>
+                                <?php echo CHtml::textField('UserGrade[name]',isset($_POST['UserGrade']['name']) ? $_POST['UserGrade']['name'] : '',array('class'=>'txt','id'=>'addUserGrade_usergradename','placeholder'=>'请输入会员等级名称','maxlength'=>'9'))?>
+                                <span class="text1 red" id="name">&nbsp;                                                                                       
+                                        <?php echo Yii::app()->user->getFlash('name');?>                                   
+                                </span>
+                                <div class="remark">
+                                    填写会员等级名称，最多9个汉字
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt class="especial">会员特权</dt>
+                            <dd>
+                                <?php echo CHtml::textField('UserGrade[discount]',isset($_POST['UserGrade']['discount']) ? substr($_POST['UserGrade']['discount'],0,3) : '',array('class'=>'txt','id'=>'usergradediscount','placeholder'=>''))?>
+                                <span class="text1 red" id="discount">
+                                    <?php if(Yii::app()->user->hasFlash('discount')) { ?>
+                                        <?php echo Yii::app()->user->getFlash('discount');?>
+                                    <?php } ?>
+                                </span>
+                                <div class="remark"> 
+                                    请输入会员折扣,1到9.9之间，保留一位小数，不填默认为无会员特权                                
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt class="especial">积分规则</dt>
+                            <dd>
+                                <?php echo CHtml::textField('UserGrade[points_ratio]',isset($_POST['UserGrade']['points_ratio']) ? $_POST['UserGrade']['points_ratio'] : '',array('class'=>'txt','id'=>'usergradepoints_ratio','placeholder'=>'','maxlength'=>'10'));?>
+                                <span class="text1 red" id="points_ratio">
+                                    <?php if(Yii::app()->user->hasFlash('points_ratio')) { ?>
+                                    <?php echo Yii::app()->user->getFlash('points_ratio');?>
+                                    <?php } ?>
+                                </span>
+                                <div class="remark">
+                                        请输入该等级的会员每消费1元所获得的积分数（大于0，不满1积分不计积分）
+                                </div>
+                            </dd>
+                        </dl>   
+
+                        <dl class="clearfix">
+                            <dt class="especial">生日积分</dt>
+                            <dd>
+                                <?php echo CHtml::textField('UserGrade[birthday_rate]',isset($_POST['UserGrade']['birthday_rate']) ? $_POST['UserGrade']['birthday_rate'] : '',array('class'=>'txt','id'=>'usergradebirthday_rate','placeholder'=>'','maxlength'=>'10'))?>
+                                <span class="text1 red" id="birthday_rate">&nbsp;  
+                                    <?php if(Yii::app()->user->hasFlash('birthday_rate')) { ?>
+                                        <?php echo Yii::app()->user->getFlash('birthday_rate');?>
+                                    <?php } ?>
+                                </span>
+                                <div class="remark">请输入到达该等级会员生日当天所获得的积分倍率，不填默认为1倍</div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>会员等级条件</dt>
+                            <dd class="member_level" id="js_level">
+                                <label>
+                                    <?php echo CHtml::radioButton('UserGrade[rule_type]',0,array('title'=>'累计积分','value'=>'1',  'id'=>'points1'))?>
+                 	          	累计积分</label>
+                 	          	<label>
+                                    <!--<?php echo CHtml::radioButton('UserGrade[rule_type]',0,array('title'=>'年累计积分','value'=>'2', 'id'=>'points2'))?>
+                 	          	年累计积分</label>
+                 	          	<label>
+                                    <?php echo CHtml::radioButton('UserGrade[rule_type]',0,array('title'=>'累计消费金额','value'=>'3', 'id'=>'points3'))?>
+                 	          	累计消费金额</label>
+                 	          	<label>
+                                    <?php echo CHtml::radioButton('UserGrade[rule_type]',0,array('title'=>'年累计消费金额','value'=>'4', 'id'=>'points4'))?>
+                 	          	年累计消费金额</label>-->
+                                <div class="layer">
+                                    <i class="arrow_top"></i>
+                                    <span>客户达到该等级需要<em class="js_title">累计积分</em>达到</span>
+
+		                                <?php echo CHtml::textField('UserGrade[points_rule]',isset($_POST['UserGrade']['points_rule']) ? $_POST['UserGrade']['points_rule'] : '',array('class'=>'txt','id'=>'usergradepoints_rule','placeholder'=>'','maxlength'=>'10'))?>
+		                                <span class="text1 red" id="points_rule">&nbsp;  
+		                                    <?php if(Yii::app()->user->hasFlash('points_rule')) { ?>
+		                                        <?php echo Yii::app()->user->getFlash('points_rule');?>
+		                                    <?php } ?>
+		                                </span>
+                                    <p class="tips">达到该等级需满足<em class="js_title"></em>的要求，会员等级有效期为一年</p>
+                                </div>
+                                <span class="text1 red" id="rule_type">&nbsp;  
+                                    <?php if(Yii::app()->user->hasFlash('rule_type')) { ?>
+                                        <?php echo Yii::app()->user->getFlash('rule_type');?>
+                                    <?php } ?>
+                                </span>                                
+                            </dd>
+                        </dl>                                                
+                        
+                    </div>
+                    <div class="section">
+                        <div class="title">会员卡</div>
+                        <dl class="clearfix">
+                            <dt class="especial">会员卡名称</dt>
+                            <dd>
+                                <input type="text" maxlength="9" class="txt" name="card_name" id="card_name" value="<?php echo isset($_POST['card_name']) ? $_POST['card_name'] : ''?>" placeholder="请输入会员卡名称">
+                                <span class="text1 red" id="span_cardname">
+                                    <?php if(Yii::app()->user->hasFlash('card_name')) { ?>
+                                        <?php echo Yii::app()->user->getFlash('card_name');?>
+                                    <?php } ?>
+                                </span>                                
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt class="especial">会员卡样式</dt>
+                            <dd>                                
+                                <div class="rank"><a href="javascript:void(0);" onclick="showpop()" class="btn_border" value="选择样式">选择样式</a></div>
+                                <div class="rank">
+                                    <input type="file" class="upload" id="upload" value="上传照片">
+                                    <em>图片建议尺寸 640*320 px</em>                    
+                                    <input name="cover" value="" style="display: none"> 
+                                    <span class="text1 red">&nbsp;
+                                        <?php if(Yii::app()->user->hasFlash('cover')) { ?>
+                                            <?php echo Yii::app()->user->getFlash('cover');?>
+                                        <?php } ?>
+                                    </span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt class="especial">效果预览</dt>
+                            <dd class="preview">
+                                <input type="checkbox" onclick="addUserGrade_hideword()" name="if_hideword" id="if_hideword" value="<?php echo IF_HIDEWORD_YES?>">只显示会员卡样式
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt class="especial">使用说明</dt>
+                            <dd>
+                                <?php echo CHtml::textArea('UserGrade[discount_illustrate]',isset($_POST['UserGrade']['discount_illustrate']) ? $_POST['UserGrade']['discount_illustrate'] : '',array('class'=>'usedas','id'=>'illustrate'));?>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="btnWrap" style="margin-bottom: 300px">
+                    <?php echo CHtml::submitButton('保存',array('class'=>'btn_com_blue'))?>                    
+                    <input type="button" class="btn_com_gray" onclick="javascript:history.back();" value="返回">
+                </div>
+            </div>
+        </div>
+    <?php echo CHtml::endForm();?>
+        <!--会员卡弹出框start-->
+        <div class="popWrap new_popWrap" id="pop" style="display:none">
+            <div class="pop_con">
+                <div class="title">
+                    选择会员卡样式
+                </div>
+                <div class="pop_content">
+                    <div class="cardStyle">
+                        <?php foreach ($GLOBALS['__XZYS'] as $key => $value) { ?>
+                        <div class="item">
+                            <div class="img">
+                                <div class="img">
+                                    <a href="javascript:;" onclick="addUserGrade_downs(<?php echo $key?>)" >
+                                        <img src="<?php echo GJ_STATIC_IMAGES.'card/'.$value['img']?>">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-ico"></div>
+                        </div>
+                        <?php } ?>  
+                        <script>
+                            $(".cardStyle .item").click(
+                                function(){
+                                        $(".cardStyle .item").removeClass("cardHover")
+                                        $(this).addClass("cardHover")
+                                })
+                        </script>
+                    </div>
+                    <div class="btn level_r">
+                        <input type="submit" class="btn_com_blue" onclick="hiddenpop()" value="确定">
+                        <input type="submit" class="btn_com_gray" onclick="addUserGrade_card('<?php echo GJ_STATIC_IMAGES.'card/style1.png'?>');" value="返回">
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!--会员卡弹出框end-->
+    <script>
+        $(document).ready(function() {
+            $("input[name='cover']").val('style1.png');
+        });
+        function showpop(){
+            $('#pop').show();
+        }
+        function hiddenpop(){
+            $('#pop').hide();
+        }
+        function showlayer(){
+            $('.layer').show();
+        }
+
+        /* 会员等级条件跳转 */
+        var $js_radio = $("#js_level input[type='radio']"),
+            $js_layer = $("#js_level .layer"),
+            $js_layer_before = $js_layer.find(".arrow_top"),
+            $js_title = $js_layer.find(".js_title"),
+            $js_label = $("#js_level label");
+            $js_tip = $js_layer.find(".tips");
+            s = 0,
+            _index=0,
+            title="";
+            current_type = <?php echo $type ?> - 1;
+        $js_radio.click(function() {
+            _index = $js_radio.index($js_radio.filter(":checked")), //获取选中状态的索引值
+            title = $(this).attr("title");
+            showLayer(_index);
+            if(_index != current_type){
+            	var index = layer.open({
+            		offset: '300px'
+            		  ,content: '确定修改会员等级条件吗？<br/>修改会员等级条件会使原有会员等级条件失效，需要重新设置并发布'
+            		  ,btn: ['确定', '取消']
+            		  ,yes: function(){
+            		    //按钮【按钮一】的回调
+              		    clear_type('<?php echo(Yii::app()->createUrl('mCenter/user/ClearType'));?>');
+              		  	layer.close(index);
+            		  },btn2: function(){
+            		    //按钮【按钮二】的回调
+            			  showLayer(current_type);
+            		  }
+            		  ,cancel: function(){ 
+            		    //右上角关闭回调
+            			  showLayer(current_type);
+            		  }
+            	});
+            }
+        });
+        
+        function showLayer(_index){
+            $js_layer.show();
+            $js_radio.eq(_index).prop("checked",true);
+            if (_index === 1 || _index === 3) {
+                $js_title.html(title);
+                $js_tip.show();
+            } else {
+                $js_tip.find("js_title").html("");
+                $js_tip.hide();
+            }
+            for (var i = 0; i < _index; i++) {
+                s = s + $js_label.eq(i).width();
+            }
+            t_width = s + _index * 20; //获取弹出提示的三角需要偏离的位置
+            console.log(t_width);
+            $js_layer_before.css({
+                "left": t_width
+            });
+            s = 0;
+        };
+
+        function clear_type(url) {
+	        $.ajax({
+	            url: url,
+	            type: 'GET',
+	            data: {data: 1},
+	            dataType: 'json',
+	            success: function (data) {
+	            	layer.msg(data.v,{offset: '300px'});
+	            }
+	        });
+		}
+
+        $(function(){
+            addUserGrade_upload("upload",'<?php echo UPLOAD_TO_PATH?>','<?php echo GJ_STATIC_JS?>',"<?php echo UPLOAD_IMG_TYPE;?>",'<?php echo(IMG_GJ_FOLDER)?>','<?php echo IMG_GJ_LIST?>');
+        });
+
+        function addUserGrade_downs(key)
+        { 
+             <?php foreach ($GLOBALS['__XZYS'] as $key => $value) { ?>
+                     if(key == <?php echo $key?>){
+                         imgs = "<?php echo $value['img']?>";
+                     }
+             <?php } ?>        
+            $("input[name='cover']").val(imgs);
+            $("#cover_img").attr('src','<?php echo GJ_STATIC_IMAGES.'card/'?>'+imgs);
+        }
+        
+        $('input[id=usergradediscount]').change(function(){
+            var discount = $('input[id=usergradediscount]').val();
+            if(discount > 9.9 || discount <= 0){
+
+            } else {
+                $('.discount').html(discount+'折');
+            }        
+        });       
+        
+        $('input[id=card_name]').change(function() { $('#membership_card_name').html($('#card_name').val()); });
+        $('input[id=addUserGrade_usergradename]').change(function() { $('#dengji_card_name').html($('#addUserGrade_usergradename').val()); });        
+        $('#illustrate').change(function(){$('.dd').html($('#illustrate').val().replace(/\n/g,'<br>'));});
+        $(function(){
+            addUserGrade_usergradename('<?php echo(Yii::app()->createUrl('mCenter/user/CheckUserGrade'));?>');//会员等级名称输入框失去焦点判断输入是否正确
+            addUserGrade_usergradediscount('<?php echo(Yii::app()->createUrl('mCenter/user/CheckUserGrade'));?>');//会员特权
+            addUserGrade_usergradepoints_rule('<?php echo(Yii::app()->createUrl('mCenter/user/CheckUserGrade'));?>');//积分要求
+            addUserGrade_usergradepoints_ratio('<?php echo(Yii::app()->createUrl('mCenter/user/CheckUserGrade'));?>');//积分规则
+            addUserGrade_card_name('<?php echo(Yii::app()->createUrl('mCenter/user/CheckUserGrade'));?>');//会员卡名称
+        });
+    </script>
