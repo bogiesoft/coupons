@@ -1,13 +1,16 @@
 <?php
 /**
- * 用户管理
+ * 用户管理控制器
+ * crm管理模块
+ * 作者：李晨
+ * 编写日期：2016-08-29
  */
 // error_reporting(E_ALL);
-class UserController extends CrmController
+class UserManageController extends CrmController
 {
 
     /**
-     * 用户管理
+     * 用户列表
      */
     public function actionUserLists()
     {
@@ -19,10 +22,10 @@ class UserController extends CrmController
             $cities = $_GET['city'];
             $provinces = $_GET['province'];
             foreach ($cities as $k => $v) {
-                $choseCities[$k]['pcode'] = $provinces[$k];
-                $choseCities[$k]['pname'] = $storeC->getProvinceCityName($provinces[$k]);
-                $choseCities[$k]['ccode'] = $cities[$k];
-                $choseCities[$k]['cname'] = $storeC->getProvinceCityName($cities[$k]);
+                $choseCities[$k]['pCode'] = $provinces[$k];
+                $choseCities[$k]['pName'] = $storeC->getProvinceCityName($provinces[$k]);
+                $choseCities[$k]['cCode'] = $cities[$k];
+                $choseCities[$k]['cName'] = $storeC->getProvinceCityName($cities[$k]);
             }
             unset($cities);
             unset($provinces);
