@@ -1,8 +1,11 @@
 <?php
 /**
- * 积分管理
+ * 积分管理控制器
+ * crm模块版本1.0
+ * 作者：李晨
+ * 编写日期：2016-08-29
  */
-class IntegralController extends CrmController
+class IntegralManageController extends CrmController
 {
 	/**
 	 * 积分设置

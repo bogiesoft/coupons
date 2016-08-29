@@ -1,6 +1,9 @@
 <?php
 /**
- * 积分兑换
+ * 积分兑换控制器
+ * crm模块1.0
+ *作者：李晨
+ * 编写日期：2016-08-29
  */
 class IntegralExchangeController extends CrmController
 {
