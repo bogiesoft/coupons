@@ -1,5 +1,5 @@
 <?php
-include_once (dirname ( __FILE__ ) . '/../mainClass.php');
+
 include_once $_SERVER['DOCUMENT_ROOT'].'/protected/class/wechat/Wechat.php';
 /**
  * 会员管理类
@@ -166,56 +166,7 @@ class UserC extends mainClass {
 			}
 		}
 		
-// 		//当草稿有新增会员等级
-// 		$addid = array();
-// 		if(!empty($res['addid'])){
-// 			$addid = $res['addid'];
-// 			foreach ($addid as $k => $v){
-// 				$model = new UserGrade();
-// 				$model->id = $v;
-// 				$model->merchant_id = $merchant_id;
-// 				$model->name = $v['name'];
-// 				$model->points_rule = $v['points_rule'];
-// 				$model->discount = $v['discount'];
-// 				$model->discount_illustrate = $v['discount_illustrate'];
-// 				$model->points_ratio = $v['points_ratio'];
-// 				$model -> membercard_img = $v['membercard_img'];
-// 				$model -> membership_card_name = $v['membership_card_name'];
-// 				$model->create_time = $v['create_time'];
-				
-// 				$model -> if_hideword = $v['if_hideword'];
-// 				$model -> rule_type = $v['rule_type'];
-// 				$model -> birthday_rate = $v['birthday_rate'];
-// 				$model->save();
-// 			}
-// 		}
-		
-		//保存上一次的纪录
-		
-// 		$bak = UserGradeBak::model() -> find('merchant_id =:merchant_id and flag =:flag',array(
-// 				':merchant_id' => $merchant_id,
-// 				':flag' => FLAG_NO
-// 		));
-// 		$history = $this->getSetUserGrade($merchant_id);
-// 		$model = new UserGradeBak();
-// 		if (!empty($bak) && $model->info != $history){
-// 			$model->info = $history;
-// 			$model -> last_time = date('Y-m-d H:i:s');
-// 			if($model->update()){
-// 			}else{
-// 				$error++;
-// 			}
-// 		}else{
-			
-// 			$model->merchant_id = $merchant_id;
-// 			$model->info = $history;
-// 			$model->create_time = date('Y-m-d H:i:s');
-// 			$model -> last_time = date('Y-m-d H:i:s');
-// 			if($model->save() > 0){				
-// 			}else{
-// 				$error++;
-// 			}
-// 		}
+
 		
 		
 		if($error == 0){
