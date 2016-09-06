@@ -67,7 +67,7 @@ class IntegralExchangeController extends CrmController
         }
 
         $flag = true; //添加/编辑标志
-        $pointactivity = new PointActivityClass();
+        $pointActivity = new PointActivityClass();
         if (isset($_POST) && !empty($_POST)){
             $info = array();
             $pa_id = null;
@@ -79,7 +79,7 @@ class IntegralExchangeController extends CrmController
 
             $merchant_id = Yii::app()->session['merchant_id'];
             $info['coupon_id'] = $_POST['coupon-id'];
-            $rs = $pointactivity -> getPointActivityInfo($pa_id);
+            $rs = $pointActivity -> getPointActivityInfo($pa_id);
             $exchange_num = $rs['data']->exchange_num;
             $info['grade'] = $_POST['grade'];
             $info['limit'] = isset($_POST['limit']) && !empty($_POST['limit']) ? $_POST['limit'] : $_POST['coupon_limit'];
@@ -102,9 +102,9 @@ class IntegralExchangeController extends CrmController
 
             //判断是添加还是编辑
             if ($_POST['flag']){
-                $result = $pointactivity->addPointActivity($merchant_id, $info);
+                $result = $pointActivity->addPointActivity($merchant_id, $info);
             }else{
-                $result = $pointactivity->editPointActivity($pa_id, $info);
+                $result = $pointActivity->editPointActivity($pa_id, $info);
             }
 
 
@@ -115,7 +115,7 @@ class IntegralExchangeController extends CrmController
         } elseif (isset($_GET) && !empty($_GET)) { //编辑获取信息
             $id = $_GET['id'];
             $flag = false;
-            $rs = $pointactivity->getPointActivityInfo($id);
+            $rs = $pointActivity->getPointActivityInfo($id);
             if ($rs['status'] == ERROR_NONE) {
                 $this->render("integralExchangeAdd",array(
                     'rs'=>$rs['data'],

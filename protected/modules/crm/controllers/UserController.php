@@ -41,7 +41,7 @@ class UserManageController extends CrmController
 
         $subSql = '';
         //微信支付宝筛选条件
-        $wechatAlipaySql = ' 1 = 1 ';
+        $weChatAliPaySql = ' 1 = 1 ';
         //排序条件
         $orderSql = '';
 
@@ -58,15 +58,15 @@ class UserManageController extends CrmController
         }
 
         //支付宝状态查询条件
-        $alipay_status = isset($_GET['alipay_status']) ? $_GET['alipay_status'] : '';
-        if (!empty($alipay_status)) {
-            $wechatAlipaySql .= ' AND alipay_status IN (' . $this -> changeArray($alipay_status) . ')';
+        $aliPay_status = isset($_GET['aliPay_status']) ? $_GET['aliPay_status'] : '';
+        if (!empty($aliPay_status)) {
+            $weChatAliPaySql .= ' AND aliPay_status IN (' . $this -> changeArray($aliPay_status) . ')';
         }
 
         //微信状态查询条件
-        $wechat_status = isset($_GET['wechat_status']) ? $_GET['wechat_status'] : '';
-        if (!empty($wechat_status)) {
-            $wechatAlipaySql .= ' AND wechat_status IN (' . $this -> changeArray($wechat_status) . ')';
+        $weChat_status = isset($_GET['weChat_status']) ? $_GET['weChat_status'] : '';
+        if (!empty($weChat_status)) {
+            $weChatAliPaySql .= ' AND weChat_status IN (' . $this -> changeArray($weChat_status) . ')';
         }
 
         //分组查询
@@ -117,34 +117,34 @@ class UserManageController extends CrmController
         //注册时间查询
         $reg_time = isset($_GET['reg_time']) ? $_GET['reg_time'] : '';
         if (!empty($reg_time)) {
-            $regist_time = explode('-', $reg_time);
-            $start = date('Y-m-d' . ' 00:00:00', strtotime($regist_time[0]));
-            $end = date('Y-m-d' . ' 23:59:59', strtotime($regist_time[1]));
+            $register_time = explode('-', $reg_time);
+            $start = date('Y-m-d' . ' 00:00:00', strtotime($register_time[0]));
+            $end = date('Y-m-d' . ' 23:59:59', strtotime($register_time[1]));
             $reg_time_start = $start < $end ? $start : $end;
             $reg_time_end = $end > $start ? $end : $start;
-            $subSql .= ' AND a.regist_time BETWEEN "' . $reg_time_start . '" AND "' . $reg_time_end . '"';
+            $subSql .= ' AND a.register_time BETWEEN "' . $reg_time_start . '" AND "' . $reg_time_end . '"';
         }
 
         //支付宝服务窗关注时间查询
         $fw_time = isset($_GET['fw_time']) ? $_GET['fw_time'] : '';
         if (!empty($fw_time)) {
-            $alipay_time = explode('-', $fw_time);
-            $start = date('Y-m-d' . ' 00:00:00', strtotime($alipay_time[0]));
-            $end = date('Y-m-d' . ' 23:59:59', strtotime($alipay_time[1]));
-            $alipay_time_start = $start < $end ? $start : $end;
-            $alipay_time_end = $end > $start ? $end : $start;
-            $wechatAlipaySql .= ' AND c.alipay_subscribe_time BETWEEN "' . $alipay_time_start . '" AND "' . $alipay_time_end . '"';
+            $aliPay_time = explode('-', $fw_time);
+            $start = date('Y-m-d' . ' 00:00:00', strtotime($aliPay_time[0]));
+            $end = date('Y-m-d' . ' 23:59:59', strtotime($aliPay_time[1]));
+            $aliPay_time_start = $start < $end ? $start : $end;
+            $aliPay_time_end = $end > $start ? $end : $start;
+            $weChatAliPaySql .= ' AND c.aliPay_subscribe_time BETWEEN "' . $aliPay_time_start . '" AND "' . $aliPay_time_end . '"';
         }
 
         //微信公众号关注时间查询
         $wx_time = isset($_GET['wx_time']) ? $_GET['wx_time'] : '';
         if (!empty($wx_time)) {
-            $wechat_time = explode('-', $wx_time);
-            $start = date('Y-m-d' . ' 00:00:00', strtotime($wechat_time[0]));
-            $end = date('Y-m-d' . ' 23:59:59', strtotime($wechat_time[1]));
-            $wechat_time_start = $start < $end ? $start : $end;
-            $wechat_time_end = $end > $start ? $end : $start;
-            $wechatAlipaySql .= ' AND b.wechat_subscribe_time BETWEEN "' . $wechat_time_start . '" AND "' . $wechat_time_end . '"';
+            $weChat_time = explode('-', $wx_time);
+            $start = date('Y-m-d' . ' 00:00:00', strtotime($weChat_time[0]));
+            $end = date('Y-m-d' . ' 23:59:59', strtotime($weChat_time[1]));
+            $weChat_time_start = $start < $end ? $start : $end;
+            $weChat_time_end = $end > $start ? $end : $start;
+            $weChatAliPaySql .= ' AND b.wechat_subscribe_time BETWEEN "' . $weChat_time_start . '" AND "' . $weChat_time_end . '"';
         }
 
         //积分查询
@@ -169,60 +169,60 @@ class UserManageController extends CrmController
         $ageOrder = isset($_GET['sort']) ? $_GET['sort'] : '';
         $scoreOrder = isset($_GET['integ']) ? $_GET['integ'] : '';
         $focusOrder = isset($_GET['Focus']) ? $_GET['Focus'] : '';
-        $registOrder = isset($_GET['regist']) ? $_GET['regist'] : '';
+        $registerOrder = isset($_GET['register']) ? $_GET['register'] : '';
         //生日时间排序
         if (!empty($ageOrder)) {
             if ($ageOrder == 'asc'){
                 $subSql .= ' ORDER BY IFNULL(a.birthday, "1970-01-01 00:00:00") DESC';
-                //$orderSql .= 'IFNULL(t.birthday, "1970-01-01 00:00:00") DESC';
+
             }
             if ($ageOrder == 'desc') {
                 $subSql .= ' ORDER BY IFNULL(a.birthday, NOW()) ASC';
-                //$orderSql .= 'IFNULL(t.birthday, NOW()) ASC';
+
             }
         }
         //积分排序
         if (!empty($scoreOrder)) {
             if ($scoreOrder == 'asc') {
                 $subSql .= ' ORDER BY IFNULL(a.points, 0) ASC';
-                //$orderSql .= 'IFNULL(t.points, 0) ASC';
+
             }
 
             if ($scoreOrder == 'desc') {
                 $subSql .= ' ORDER BY IFNULL(a.points, 0) DESC';
-                //$orderSql .= 'IFNULL(t.points, 0) DESC';
+
             }
 
         }
         //支付宝服务窗, 微信公众号关注时间排序
         if (!empty($focusOrder)) {
             if ($focusOrder == 'asc') {
-                $subSql .= ' ORDER BY IFNULL(a.wechat_subscribe_time, NOW()) ASC, IFNULL(a.alipay_subscribe_time, NOW()) ASC';
-                //$orderSql .= 'IFNULL(c.alipay_subscribe_time, NOW()) ASC, IFNULL(b.wechat_subscribe_time, NOW()) ASC';
+                $subSql .= ' ORDER BY IFNULL(a.weChat_subscribe_time, NOW()) ASC, IFNULL(a.aliPay_subscribe_time, NOW()) ASC';
+
             }
 
             if ($focusOrder == 'desc') {
                 $subSql .= ' ORDER BY IFNULL(a.wechat_subscribe_time, NOW()) DESC, IFNULL(a.alipay_subscribe_time, NOW()) DESC';
-                //$orderSql .= 'IFNULL(c.alipay_subscribe_time, NOW()) DESC, IFNULL(b.wechat_subscribe_time, NOW()) DESC';
+
             }
         }
         //注册时间排序
-        if (!empty($registOrder)) {
-            if ($registOrder == 'asc') {
-                $subSql .= ' ORDER BY IFNULL(a.regist_time, NOW()) ASC';
-                //$orderSql .= 'IFNULL(t.regist_time, NOW()) ASC';
+        if (!empty($registerOrder)) {
+            if ($registerOrder == 'asc') {
+                $subSql .= ' ORDER BY IFNULL(a.register_time, NOW()) ASC';
+
             }
 
-            if ($registOrder == 'desc') {
-                $subSql .= ' ORDER BY IFNULL(a.regist_time, "1970-01-01 00:00:00") DESC';
-                //$orderSql .= 'IFNULL(t.regist_time, "1970-01-01 00:00:00") DESC';
+            if ($registerOrder == 'desc') {
+                $subSql .= ' ORDER BY IFNULL(a.register_time, "1970-01-01 00:00:00") DESC';
+
             }
         }
 
         //默认按照注册，关注时间降序
         if (empty($focusOrder) && empty($registOrder) && empty($scoreOrder) && empty($ageOrder)) {
             $subSql .= ' ORDER BY a.wechat_subscribe_time DESC, a.alipay_subscribe_time DESC, a.create_time DESC';
-            //$orderSql .= 'b.wechat_subscribe_time DESC, c.alipay_subscribe_time DESC, t.create_time DESC';
+
         }
 
         $provinces = isset($_GET['province']) ? $_GET['province'] : '';
@@ -240,63 +240,47 @@ class UserManageController extends CrmController
         }
 
         //连接数据库
-        $cmd = Yii::app()->db->createCommand();
-        $cmd -> select = 't.id, t.avatar, t.sex, t.nickname, t.name, t.birthday,
+        $users = Yii::app()->db->createCommand()
+        -> select ('t.id, t.avatar, t.sex, t.nickname, t.name, t.birthday,
         t.city, t.type, t.points, t.account, t.membershipgrade_id, t.create_time, t.regist_time,
-        t.total_trade, t.last_trade_store, t.last_trade_time, IFNULL(b.wechat_status, 1) AS wechat_status, b.wechat_subscribe_time, b.wechat_cancel_subscribe_time, IFNULL(c.alipay_status, 1) AS alipay_status, c.alipay_subscribe_time, c.alipay_cancel_subscribe_time';
-        $cmd -> from = '(SELECT * FROM wq_user a WHERE a.merchant_id = ' . $merchant_id . ' AND a.flag = ' . FLAG_NO . ' AND a.bind_status = ' . USER_BIND_STATUS_UNBIND . $subSql . ' LIMIT ' . $limit . ') AS t ';
-        $cmd -> join = 'LEFT JOIN (
-            SELECT
-                a.wechat_id, a.wechat_status AS wechat_status,
-                a.wechat_subscribe_time AS wechat_subscribe_time,
-                a.wechat_cancel_subscribe_time AS wechat_cancel_subscribe_time
-            FROM wq_user a
-            WHERE a.type = ' . USER_TYPE_WECHAT_FANS . '
-            AND a.merchant_id = ' . $merchant_id . '
-        ) b ON t.wechat_id = b.wechat_id
-        LEFT JOIN (
-            SELECT
-                a.alipay_fuwu_id, a.alipay_status AS alipay_status,
-                a.alipay_subscribe_time AS alipay_subscribe_time,
-                a.alipay_cancel_subscribe_time AS alipay_cancel_subscribe_time
-            FROM wq_user a
-            WHERE a.type = ' . USER_TYPE_ALIPAY_FANS . '
-            AND a.merchant_id = ' . $merchant_id . '
-        ) c ON t.alipay_fuwu_id = c.alipay_fuwu_id';
+        t.total_trade, t.last_trade_store, t.last_trade_time, ')
+            ->from('wq_user t')
+            ->group ('t.id')
+
+            -> queryAll();
 
         //分页处理
-        $cmd1 = clone $cmd;
+        $cmd1 = clone $users;
         $cmd1 -> select = 'count(t.id)';
         $cmd1 -> from = '(SELECT * FROM wq_user a WHERE a.merchant_id = ' . $merchant_id . ' AND a.flag = ' . FLAG_NO . ' AND a.bind_status = ' . USER_BIND_STATUS_UNBIND . $subSql . ') AS t ';
         $cmd1 -> join = '';
         $user_num = $cmd1->queryColumn();
         $pages = new CPagination($user_num[0]);
 
-        $cmd->group = 't.id';
-        $cmd->order = $orderSql;
-        $cmd->having = $wechatAlipaySql;
-        $users = $cmd -> queryAll();
+
+        
+
 
         $count = count($users);
 
         //查询门店
-        $command = Yii::app()->db->createCommand();
-        $command->select('a.id, a.name, a.branch_name');
-        $command->from('wq_store a');
-        $command->where('a.merchant_id = :merchant_id', array(':merchant_id' => $merchant_id));
-        $store_arr = $command->queryAll();
-        foreach ($store_arr as $v) {
-            $store_lists[$v['id']]['name'] = empty($v['branch_name']) ? $v['name'] : $v['name']."-".$v['branch_name'];
+        $stores = Yii::app()->db->createCommand()
+                            ->select('a.id, a.name, a.branch_name')
+                             ->from('wq_store a')
+                             ->where('a.merchant_id = :merchant_id', array(':merchant_id' => $merchant_id))
+                             ->queryAll();
+        foreach ($stores as $store) {
+            $store_lists[$store['id']]['name'] = empty($store['branch_name']) ? $store['name'] : $store['name']."-".$store['branch_name'];
         }
 
         //查询会员等级
-        $command = Yii::app()->db->createCommand();
-        $command->select('a.id, a.merchant_id, a.name AS grade_name');
-        $command->from('wq_user_grade a');
-        $command->where('a.merchant_id = :merchant_id', array(':merchant_id' => $merchant_id));
-        $grade_arr = $command->queryAll();
-        foreach ($grade_arr as $v) {
-            $grade_lists[$v['id']]['grade_name'] = $v['grade_name'];
+        $userGrades = Yii::app()->db->createCommand()
+                                     ->select('a.id, a.merchant_id, a.name AS grade_name')
+                                     ->from('wq_user_grade a')
+                                     ->where('a.merchant_id = :merchant_id', array(':merchant_id' => $merchant_id))
+                                      ->queryAll();
+        foreach ($userGrades as $userGrade) {
+            $userGrade[$userGrade['id']]['grade_name'] = $userGrade['grade_name'];
         }
 
         $user_groups = UserGroup::model()->findAll('merchant_id=' . $merchant_id . ' AND flag=' . FLAG_NO);
@@ -304,8 +288,8 @@ class UserManageController extends CrmController
 
         $this->render('userLists', array(
             'users' => $users,
-            'store_lists' => $store_lists,
-            'grade_lists' => $grade_lists,
+            'store_lists' => $stores,
+            'grade_lists' => $userGrades,
             'pages' => $pages,
             'user_groups' => $user_groups,
             'user_grades' => $user_grades,

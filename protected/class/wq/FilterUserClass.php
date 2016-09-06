@@ -402,6 +402,7 @@ FROM wq_user LEFT JOIN (SELECT order_paymoney - IFNULL(refund_money, 0) AS order
      * 添加分组点击计算
      * @param string $merchant_id
      * @param string $expJson
+     * @return string
      */
     public function JiSuan($merchant_id = '', $expJson = '')
     {
@@ -808,21 +809,116 @@ FROM wq_user LEFT JOIN (SELECT order_paymoney - IFNULL(refund_money, 0) AS order
      */
     public static function getFsInfo($wechat_id = '', $alipay_fuwu_id = '', $merchant_id = '')
     {
-        if (empty($merchant_id))
+        if (empty($merchant_id)){
             $merchant_id = Yii::app()->session['merchant_id'];
-        if (!empty($wechat_id))
+
+        }
+
+
+        if (!empty($wechat_id)){
             return User::model()->find('merchant_id=:merchant_id AND wechat_id=:wechat_id AND flag=:flag AND `type`=:type', array(
                 ':merchant_id' => $merchant_id,
                 ':wechat_id' => $wechat_id,
                 ':flag' => FLAG_NO,
                 ':type' => USER_TYPE_WECHAT_FANS
             ));
-        if (!empty($alipay_fuwu_id))
+        }
+
+        if (!empty($alipay_fuwu_id)){
             return User::model()->find('merchant_id=:merchant_id AND alipay_fuwu_id=:alipay_fuwu_id AND flag=:flag AND `type`=:type', array(
                 ':merchant_id' => $merchant_id,
                 ':alipay_fuwu_id' => $alipay_fuwu_id,
                 ':flag' => FLAG_NO,
                 ':type' => USER_TYPE_ALIPAY_FANS
             ));
+        }
+
+    }
+    /**
+     * 添加分组点击计算
+     * @param string $merchant_id
+     * @param string $expJson
+     * @return string
+     */
+    public function countUserGroup($merchant_id = '', $expJson = '')
+    {
+
+            $merchant_id = Yii::app()->session['merchant_id'];
+
+            $expJson = file_get_contents("php://input");
+
+
+
+
+            $expObCount = json_decode($expJson);
+
+            $conditionArr = array();
+            foreach ($expObCount as $exp) {
+                $conditionArr[$exp->name] = $exp->name;
+            }
+
+            $user_ids = $this->condition_user($expObCount, $merchant_id);
+            foreach ($expObCount as $exp) {
+                //消费金额
+                if($exp->name == 'condition_consum_amount') {
+                    $user_ids = $this->condition_consum_amount($exp, $merchant_id, $user_ids);
+                }
+                //客单价
+                if($exp->name == 'condition_consum_unitprice') {
+                    if(!isset($conditionArr['condition_consum_amount'])) {
+                        $user_ids = $this->condition_consum_unitprice($exp, $merchant_id, $user_ids);
+                    }
+                    if(isset($conditionArr['condition_consum_amount']) && !empty($user_ids)) {
+                        $user_ids = $this->condition_consum_unitprice($exp, $merchant_id, $user_ids);
+                    }
+                }
+                //最高消费
+                if($exp->name == 'condition_consum_highestprice') {
+                    if(!isset($conditionArr['condition_consum_unitprice'])) {
+                        $user_ids = $this->condition_consum_highestprice($exp, $merchant_id, $user_ids);
+                    }
+                    if(isset($conditionArr['condition_consum_unitprice']) && !empty($user_ids)) {
+                        $user_ids = $this->condition_consum_highestprice($exp, $merchant_id, $user_ids);
+                    }
+                }
+                //消费次数
+                if($exp->name == 'condition_consum_count') {
+                    if(!isset($conditionArr['condition_consum_highestprice'])) {
+                        $user_ids = $this->condition_consum_count($exp, $merchant_id, $user_ids);
+                    }
+                    if(isset($conditionArr['condition_consum_highestprice']) && !empty($user_ids)) {
+                        $user_ids = $this->condition_consum_count($exp, $merchant_id, $user_ids);
+                    }
+                }
+                //消费天数
+                if($exp->name == 'condition_consum_days') {
+                    if(!isset($conditionArr['condition_consum_count'])) {
+                        $user_ids = $this->condition_consum_days($exp, $merchant_id, $user_ids);
+                    }
+                    if(isset($conditionArr['condition_consum_count']) && !empty($user_ids)) {
+                        $user_ids = $this->condition_consum_days($exp, $merchant_id, $user_ids);
+                    }
+                }
+                //最近消费数据
+                if($exp->name == 'condition_not_consum_days') {
+                    if(!isset($conditionArr['condition_consum_days'])) {
+                        $user_ids = $this->condition_not_consum_days($exp, $merchant_id, $user_ids);
+                    }
+                    if(isset($conditionArr['condition_consum_days']) && !empty($user_ids)) {
+                        $user_ids = $this->condition_not_consum_days($exp, $merchant_id, $user_ids);
+                    }
+                }
+            }
+
+
+
+
+        // 计算后表达式缓存
+        if (! empty($merchant_id) && ! empty($expJson)) {
+            $key = 'merchant_' . $merchant_id . '_group_exp_json';
+            Yii::app()->memcache->set($key, $expJson);
+        }
+
+        return $user_ids;
     }
 }

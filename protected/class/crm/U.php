@@ -224,8 +224,8 @@ class U extends mainClass
 			
 			//来源筛选
 			$fromArr = array();
-			if(!empty($from)){
-				for($i=0;$i<count($form);$i++){
+			if(!empty($fromArr)){
+				for($i=0;$i<count($fromArr);$i++){
 					if($from[$i] == 4){ //4代表其他来源
 						$fromArr[] = 4;
 						$fromArr[] = USER_FROM_WAP;

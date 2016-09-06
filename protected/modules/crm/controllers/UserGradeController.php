@@ -11,11 +11,11 @@ class UserGradeController extends CrmController{
     {
         $list = array();
         $lists = array();
-        $userc = new UserC();
+        $userC = new UserC();
         $merchant_id = Yii::app()->session['merchant_id'];
-        $Grade = json_decode($userc -> getSetUserGrade($merchant_id),true);
-        $GradeDraft = json_decode($userc -> getSetUserGradeDraft($merchant_id),true);
-        $res = $userc -> contrastGrade($Grade,$GradeDraft);
+        $Grade = json_decode($userC -> getSetUserGrade($merchant_id),true);
+        $GradeDraft = json_decode($userC -> getSetUserGradeDraft($merchant_id),true);
+        $res = $userC -> contrastGrade($Grade,$GradeDraft);
 
         $num = 0;
         if (!empty($res['num'])){
@@ -23,7 +23,7 @@ class UserGradeController extends CrmController{
         }
         $change = $res['change'];
         $result = $res['grade'];
-        //var_dump($result['data']['list']);
+
         if($result['status'] == ERROR_NONE){
             if(isset($result['data']['list'])){
                 $list = $result['data']['list'];
@@ -46,7 +46,7 @@ class UserGradeController extends CrmController{
      * 发布会员等级
      */
     public function actionReleaseUserGrade(){
-        $userc = new UserC();
+        $userC = new UserC();
         $merchant_id = Yii::app()->session['merchant_id'];
         $num = 0;
         if (!empty($_GET['num'])){
@@ -56,7 +56,7 @@ class UserGradeController extends CrmController{
             $url = $this->createUrl('setUserGrade',array('showleft'=>1));
             echo "<script>window.location.href='$url'</script>";
         }else {
-            $result = $userc->releaseUserGrade($merchant_id);
+            $result = $userC->releaseUserGrade($merchant_id);
             $result = json_decode($result,true);
             if($result['status'] == ERROR_NONE){
                 $url = $this->createUrl('setUserGrade');
@@ -73,11 +73,11 @@ class UserGradeController extends CrmController{
      * 还原会员等级
      */
     public function actionRevertUserGrade(){
-        $userc = new UserC();
+        $userC = new UserC();
         $merchant_id = Yii::app()->session['merchant_id'];
 
 
-        $result = $userc->RevertUserGrade($merchant_id);
+        $result = $userC->RevertUserGrade($merchant_id);
         $result = json_decode($result,true);
         if($result['status'] == ERROR_NONE){
             $url = $this->createUrl('setUserGrade');
@@ -157,8 +157,8 @@ class UserGradeController extends CrmController{
                     Yii::app()->user->setFlash('points_rule','积分要求必填');
                 } else
                 {
-                    $userc=new UserC();
-                    $rs=json_decode($userc->checkUserPointRule($merchant_id,$post['points_rule']),true);
+                    $userC=new UserC();
+                    $rs=json_decode($userC->checkUserPointRule($merchant_id,$post['points_rule']),true);
                     if($rs['status']==ERROR_DUPLICATE_DATA)
                     {
                         //积分要求重复
@@ -273,10 +273,10 @@ class UserGradeController extends CrmController{
 
             //验证会员等级名称是否存在
             if(!empty($post['name'])){
-                $userc = new UserC();
+                $userC = new UserC();
                 $id = '';
                 $merchant_id = Yii::app() -> session['merchant_id'];
-                $is_exit = $userc -> isUserGradeNameExit($post['name'],$id,$merchant_id);
+                $is_exit = $userC -> isUserGradeNameExit($post['name'],$id,$merchant_id);
                 if($is_exit){
                     $flag = true;
                     Yii::app()->user->setFlash('name','会员等级名称已存在');
@@ -290,7 +290,7 @@ class UserGradeController extends CrmController{
             }
 
             if(!$flag){
-                $userc = new UserC();
+                $userC = new UserC();
                 $name = trim($post['name']);
                 $discount = !empty($post['discount']) ? $post['discount'] : '';
                 $points_rule = $post['points_rule'];
@@ -303,7 +303,7 @@ class UserGradeController extends CrmController{
                 $birthday_rate = $post['birthday_rate'];
 
 
-                $result = $userc -> addUserGrade($merchant_id,$name,$points_rule,$discount,$discount_illustrate,$points_ratio,$cover,$cardName,$if_hideword,$rule_type,$birthday_rate);
+                $result = $userC -> addUserGrade($merchant_id,$name,$points_rule,$discount,$discount_illustrate,$points_ratio,$cover,$cardName,$if_hideword,$rule_type,$birthday_rate);
                 $result = json_decode($result,true);
                 if($result['status'] == ERROR_NONE){
                     $url = $this->createUrl('setUserGrade');
@@ -335,9 +335,9 @@ class UserGradeController extends CrmController{
     public function actionEditUserGrade($id)
     {
         $model = array();
-        $userc = new UserC();
+        $userC = new UserC();
         $merchant_id = Yii::app()->session['merchant_id'];
-        $model = $userc -> getUserGradeDraftDetails($id);
+        $model = $userC -> getUserGradeDraftDetails($id);
 
         //var_dump($model);
         $flag = 0;
@@ -405,7 +405,7 @@ class UserGradeController extends CrmController{
                     } else{
                         //积分要求不为空且不为0,判断是否与设置过的有效会员等级一致
                         //不能与设置过的有效会员等级一致
-                        $rs=json_decode($userc->checkUserPointRule($merchant_id,$post['points_rule'],$id),true);
+                        $rs=json_decode($userC->checkUserPointRule($merchant_id,$post['points_rule'],$id),true);
                         if($rs['status']==ERROR_DUPLICATE_DATA)
                         {
                             //积分要求重复
@@ -510,8 +510,8 @@ class UserGradeController extends CrmController{
 
             //验证会员等级名称是否存在
             if(!empty($post['name'])){
-                $userc = new UserC();
-                $is_exit = $userc -> isUserGradeNameExit($post['name'],$id,$merchant_id);
+                $userC = new UserC();
+                $is_exit = $userC -> isUserGradeNameExit($post['name'],$id,$merchant_id);
                 if($is_exit){
                     $flag = 1;
                     Yii::app()->user->setFlash('name','会员等级名称已存在');
@@ -530,7 +530,7 @@ class UserGradeController extends CrmController{
                 $rule_type = $post['rule_type'];
                 $birthday_rate = $post['birthday_rate'];
 
-                $result = $userc -> editUserGrade($name,$points_rule,$points_ratio,$discount_illustrate,$discount,$id,$cover,$cardName,$if_hideword,$rule_type,$birthday_rate);
+                $result = $userC -> editUserGrade($name,$points_rule,$points_ratio,$discount_illustrate,$discount,$id,$cover,$cardName,$if_hideword,$rule_type,$birthday_rate);
                 $result = json_decode($result,true);
                 if($result['status'] == ERROR_NONE)
                 {
@@ -541,11 +541,11 @@ class UserGradeController extends CrmController{
             }
 
         }
-        $userc = new UserC();
+        $userC = new UserC();
         $merchant_id = Yii::app()->session['merchant_id'];
-        $Grade = json_decode($userc -> getSetUserGrade($merchant_id),true);
-        $GradeDraft = json_decode($userc -> getSetUserGradeDraft($merchant_id),true);
-        $res = $userc -> contrastGrade($Grade,$GradeDraft);
+        $Grade = json_decode($userC -> getSetUserGrade($merchant_id),true);
+        $GradeDraft = json_decode($userC -> getSetUserGradeDraft($merchant_id),true);
+        $res = $userC -> contrastGrade($Grade,$GradeDraft);
 
         $list = array();
         $list2 = array();
@@ -578,9 +578,9 @@ class UserGradeController extends CrmController{
      */
     public function actionDelUserGrade($id)
     {
-        $userc = new UserC();
+        $userC = new UserC();
         $merchant_id = Yii::app()->session['merchant_id'];
-        $result = $userc -> delUserGrade($id,$merchant_id);
+        $result = $userC -> delUserGrade($id,$merchant_id);
         $result = json_decode($result,true);
 
         if($result['status'] == ERROR_NONE){
@@ -592,11 +592,11 @@ class UserGradeController extends CrmController{
      * 清空会员条件设置
      */
     public function actionClearType() {
-        $userc = new UserC();
+        $userC = new UserC();
         $merchant_id = Yii::app()->session['merchant_id'];
         $type = $_GET['type'] + 1;
-        $GradeDraft = json_decode($userc -> getSetUserGradeDraft($merchant_id),true);
-        $userc->clearGradeType($GradeDraft,$type);
+        $GradeDraft = json_decode($userC -> getSetUserGradeDraft($merchant_id),true);
+        $userC->clearGradeType($GradeDraft,$type);
         $arr=array('v'=>'所有条件已清除，请重新设置');
         echo json_encode($arr);
     }
@@ -631,13 +631,13 @@ class UserGradeController extends CrmController{
                         echo json_encode($arr);
                     }
 
-                    $userc = new UserC();
+                    $userC = new UserC();
                     $id = '';
                     $userGrandId = isset($_GET['userGrandId'])?$_GET['userGrandId']:'';
-                    $userGrandName = $userc -> getUserGrandName($userGrandId);
+                    $userGrandName = $userC -> getUserGrandName($userGrandId);
                     $merchant_id = Yii::app() -> session['merchant_id'];
                     if($userGrandName != trim($data)){ //编辑界面     如果原输入框的会员等级名称和userGrandId对应的数据库的会员等级名称不一样  说明有改动  要判断是否存在
-                        $is_exit = $userc -> isUserGradeNameExit($data,$id,$merchant_id);
+                        $is_exit = $userC -> isUserGradeNameExit($data,$id,$merchant_id);
                         if($is_exit){
                             $flag = false;
                             $arr=array('type'=>'name','v'=>'会员等级名称已存在');
@@ -703,10 +703,10 @@ class UserGradeController extends CrmController{
                         echo json_encode($arr);
                     } else
                     {
-                        $userc=new UserC();
+                        $userC=new UserC();
                         $userGrandId = isset($_GET['userGrandId'])?$_GET['userGrandId']:'';
-                        $userGrandPointRule = $userc -> getUserGrandPointRule($userGrandId);
-                        $rs=json_decode($userc->checkUserPointRule($merchant_id,$data),true);
+                        $userGrandPointRule = $userC -> getUserGrandPointRule($userGrandId);
+                        $rs=json_decode($userC->checkUserPointRule($merchant_id,$data),true);
                         if($userGrandPointRule != trim($data)){
                             if($rs['status']==ERROR_DUPLICATE_DATA)
                             {

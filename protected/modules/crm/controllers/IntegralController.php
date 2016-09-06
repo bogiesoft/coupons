@@ -138,30 +138,31 @@ class IntegralManageController extends CrmController
 	 */
 	public function actionClearIntegral()
 	{
-		$token = 0;
+
+
  		$token = $_GET['token'];
-		$userc = new UserC();
+		$userC = new UserC();
  		if($token == 'hy8c6gmkds56sdsa3'){
-			$results = $userc -> getAllClearPoints();
+			$results = $userC-> getAllClearPoints();
 			foreach ($results as $k => $v){
 				$merchant_id = $v['merchant_id'];
 				$clean_start_time = $v['clean_start_time'];
 				$clean_date_type = $v['clean_date_type'] - 1;
 				$clean_date = $v['clean_date'];
-				$currentyear = substr(date('Y:M:D'), 0,4);
-				$execute_time = $currentyear.'-'.$clean_start_time;
-				$clearyear = $currentyear - $clean_date_type;
-				$cleartime = $clearyear.'-'.str_replace("/", "-", $clean_date);
+				$currentYear = substr(date('Y:M:D'), 0,4);
+				$execute_time = $currentYear.'-'.$clean_start_time;
+				$clearYear = $currentYear - $clean_date_type;
+				$clearTime = $clearYear.'-'.str_replace("/", "-", $clean_date);
 	
 				//判断当前时间是否为清理执行时间
-				if ($execute_time == $currenttime)
+				if ($execute_time == $clearTime)
 				{
 					//找出该商户下的所有会员id
-					$result = $userc->getUserId($merchant_id);
+					$result = $userC->getUserId($merchant_id);
 					if(!empty($result)){
 						//循环清理每个会员的积分
 						foreach ($result as $k => $v){
-							$result = $userc->clearUserPoints($v,$cleartime,$execute_time);
+							$result = $userC->clearUserPoints($v,$clearTime,$execute_time);
 						}
 					}
 
@@ -179,13 +180,13 @@ class IntegralManageController extends CrmController
 		$info = $_GET;
 		$stored_points = $info['storedpoints'];
 		if(!empty($info['is_share'])){
-			$if_storedpay_get_points = POINT_RULE_IF_STOREDPAY_GET_POINT_YES;
+			$if_stoRedPay_get_points = POINT_RULE_IF_STOREDPAY_GET_POINT_YES;
 		}else {
-			$if_storedpay_get_points = POINT_RULE_IF_STOREDPAY_GET_POINT_NO;
+            $if_stoRedPay_get_points = POINT_RULE_IF_STOREDPAY_GET_POINT_NO;
 		}
-		$userc = new UserC();
+		$userC = new UserC();
 		$merchant_id = Yii::app()->session['merchant_id'];
-		$result = $userc->setStoredPoints($merchant_id, $stored_points,$if_storedpay_get_points);
+		$result = $userC->setStoredPoints($merchant_id, $stored_points,$if_stoRedPay_get_points);
 		if($result['status'] == ERROR_NONE)
 		{
 			$url = $this->createUrl('integralSet');
@@ -201,9 +202,9 @@ class IntegralManageController extends CrmController
 	public function  actionStop()
 	{
 		$type = $_GET['type'];
-		$userc = new UserC();
+		$userC = new UserC();
 		$merchant_id = Yii::app()->session['merchant_id'];
-		$result = $userc->stopPointsSet($merchant_id, $type);
+		$result = $userC->stopPointsSet($merchant_id, $type);
 		if($result['status'] == ERROR_NONE)
 		{
 			$url = $this->createUrl('integralSet');

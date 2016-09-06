@@ -97,16 +97,17 @@ class UserGroupController extends CrmController{
      * 编辑会员管理分组(根据条件筛选分组)
      */
     public function actionEditFilterUserGroup() {
+        //获取用户组id
         if (isset($_GET['userGroupId']) && $_GET['userGroupId']) {
             $group_id = $_GET['userGroupId'];
             $merchant_id = Yii::app()->session['merchant_id'];
-
+       //获取相应的用户组数据
             $user_group = UserGroup::model()->findByPk($group_id);
             $user_grades = UserGrade::model()->findAll('merchant_id=:merchant_id AND flag=:flag', array(':merchant_id'=>$merchant_id, ':flag'=>FLAG_NO));
             $store_lists = Store::model()->findAll('merchant_id=:merchant_id AND flag=:flag', array(':merchant_id'=>$merchant_id, ':flag'=>FLAG_NO));
             $group_types = $GLOBALS['__GROUP_TYPES'];
             $tag_category_customer_values = $GLOBALS['__TAG_CATEGORY_CUSTOMER_VALUE'];
-
+            //前端渲染
             $this->render('editFilterUserGroup', array(
                 'user_group' => $user_group,
                 'store_lists'=>$store_lists,
@@ -335,7 +336,7 @@ class UserGroupController extends CrmController{
         }
 
         $store_str_arr = explode(',', $store_str);
-        //array_pop($store_str_arr);
+
         array_splice($store_str_arr, array_search($delData, $store_str_arr), 1); //删除指定元素  并重新排序索引
         echo json_encode($store_str_arr);
     }
@@ -359,6 +360,7 @@ class UserGroupController extends CrmController{
      */
     public function actionAddUserGroupSelf()
     {
+        $name="";
         $merchant_id = Yii::app()->session['merchant_id'];
         $u = new U();
         if(isset($_POST['UserGroup']) && !empty($_POST['UserGroup'])){
@@ -377,6 +379,7 @@ class UserGroupController extends CrmController{
      */
     public function actionEditUserGroupSelf($userGroupId)
     {
+        $name="";
         $merchant_id = Yii::app()->session['merchant_id'];
         $u = new U();
         $model = $u->getUserGroupDetail($userGroupId);
