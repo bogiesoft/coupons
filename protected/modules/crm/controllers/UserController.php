@@ -306,57 +306,35 @@ class UserManageController extends CrmController
      */
     public function actionUserInfo()
     {
-
         $user_login_clients = $GLOBALS['__USER_LOGIN_CLIENT'];
         $merchant_id = Yii::app()->session['merchant_id'];
         $user_id = isset($_GET['id']) ? $_GET['id'] : '';
-
         if (empty($user_id))
             exit('非法访问！');
-
-        $command = Yii::app()->db->createCommand();
-        $command->select('a.*, b.*, c.*, d.name as grade_name, d.membercard_img');
-        $command->from('wq_user a');
-        $command->leftJoin('(
-                            SELECT
-                                a.wechat_id, a.wechat_status AS rel_wechat_status,
-                                a.wechat_subscribe_time AS rel_wechat_subscribe_time,
-                                a.wechat_cancel_subscribe_time AS rel_wechat_cancel_subscribe_time
-                            FROM wq_user a
-                            WHERE a.type = ' . USER_TYPE_WECHAT_FANS . '
-                            AND a.merchant_id = ' . $merchant_id . '
-                        ) b', 'a.wechat_id = b.wechat_id');
-        $command->leftJoin('(
-                            SELECT
-                                a.alipay_fuwu_id, a.alipay_status AS rel_alipay_status,
-                                a.alipay_subscribe_time AS rel_alipay_subscribe_time,
-                                a.alipay_cancel_subscribe_time AS rel_alipay_cancel_subscribe_time
-                            FROM wq_user a
-                            WHERE a.type = ' . USER_TYPE_ALIPAY_FANS . '
-                            AND a.merchant_id = ' . $merchant_id . '
-                        ) c', 'a.alipay_fuwu_id = c.alipay_fuwu_id');
-        $command->leftJoin('wq_user_grade d', 'a.membershipgrade_id = d.id');
-
-        $command->where('a.id = :id', array(':id' => $user_id));
-        $user = $command->queryRow();
-        if (empty($user))
+        $user_info = Yii::app()->db->createCommand()
+        ->select('a.wechat_id, a.wechat_status,a.wechat_cancel_subscribe_time,a.alipay_fuwu_id, a.alipay_status, a.alipay_subscribe_time,a.alipay_cancel_subscribe_time,b.*, c.*, d.name as grade_name, d.membercard_img')
+        ->from('wq_user a')
+        ->leftJoin('wq_user_grade d', 'a.membershipgrade_id = d.id')
+        ->where('a.id = :id', array(':id' => $user_id))
+       ->queryRow();
+        if (empty($user_info))
             exit('该用户不存在！');
 
         //获取成长记录
-        $command2 = Yii::app()->db->createCommand();
-        $command2->select('a.user_id, a.user_grade_id, a.user_grade_name, a.create_time');
-        $command2->from('wq_user_growup_record a');
-        $command2->leftJoin('wq_user_grade b', 'a.user_grade_id = b.id');
-        $command2->where('a.user_id = :user_id and a.flag = :flag', array(
+        $growUp = Yii::app()->db->createCommand()
+        ->select('a.user_id, a.user_grade_id, a.user_grade_name, a.create_time')
+        ->from('wq_user_growup_record a')
+       ->leftJoin('wq_user_grade b', 'a.user_grade_id = b.id')
+       ->where('a.user_id = :user_id and a.flag = :flag', array(
             ':user_id' => $user_id,
             ':flag' => FLAG_NO
-        ));
-        $command2->order('a.create_time ASC');
-        $growupRecord = $command2->queryAll();
+        ))
+       ->order('a.create_time ASC')
+       ->queryAll();
 
-        $user = $this->arrayToObject($user);
+        $user = $this->arrayToObject($user_info);
 
-        $user->growupRecord = $growupRecord;
+        $user->growupRecord = $growUp;
 
         $time_line = array();
         $tmpTimesArr = array();
@@ -408,34 +386,33 @@ class UserManageController extends CrmController
         $xf_types = array(ORDER_STATUS_NORMAL);
         $allowed_types = array_merge($tk_types, $xf_types);
         $allowed_types_Str = "('" . implode("','", $allowed_types) . "')";
-        $wechat_user_id = $user->wechat_id;
-        $alipay_user_id = $user->alipay_fuwu_id;
-        $user_store_orders = Order::model()->findAll('(user_id=:user_id or wechat_user_id=:wechat_user_id or alipay_user_id=:alipay_user_id) AND flag=:flag AND order_type=:order_type AND pay_status=:pay_status AND order_status IN ' . $allowed_types_Str . ' order by create_time asc', array(':user_id' => $user_id, ':wechat_user_id' => $wechat_user_id, ':alipay_user_id' => $alipay_user_id, ':flag' => FLAG_NO, ':order_type' => ORDER_TYPE_CASHIER, ':pay_status' => ORDER_STATUS_PAID));
+        $weChat_user_id = $user->wechat_id;
+        $aliPay_user_id = $user->alipay_fuwu_id;
+        $user_store_orders = Order::model()->findAll('(user_id=:user_id or wechat_user_id=:wechat_user_id or alipay_user_id=:alipay_user_id) AND flag=:flag AND order_type=:order_type AND pay_status=:pay_status AND order_status IN ' . $allowed_types_Str . ' order by create_time asc', array(':user_id' => $user_id, ':wechat_user_id' => $weChat_user_id, ':alipay_user_id' => $aliPay_user_id, ':flag' => FLAG_NO, ':order_type' => ORDER_TYPE_CASHIER, ':pay_status' => ORDER_STATUS_PAID));
         //累计门店消费金额
         $total_store_xf_money = 0;
         //消费次数
         $total_store_xf_num = 0;
         foreach ($user_store_orders as $v) {
             if ($v->order_status == ORDER_STATUS_NORMAL) {
-                $shishou = $v->order_paymoney - $v->coupons_money - $v->discount_money - $v->merchant_discount_money;
-                $total_store_xf_money += $shishou;
+                $actual_amount = $v->order_paymoney - $v->coupons_money - $v->discount_money - $v->merchant_discount_money;
+                $total_store_xf_money += $actual_amount;
                 $total_store_xf_num++;
             }
         }
 
         //累计获得积分
         $user_total_get_score = 0;
-
-        $command3 = Yii::app()->db->createCommand();
-        $command3->select('a.user_id, a.points, a.balance_of_payments');
-        $command3->from('wq_user_pointsdetail a');
-        $command3->where('a.user_id = :user_id', array(
+        $integral_total = Yii::app()->db->createCommand()
+       ->select('a.user_id, a.points, a.balance_of_payments')
+       ->from('wq_user_pointsdetail a')
+       ->where('a.user_id = :user_id', array(
             ':user_id' => $user_id
-        ));
-        $userPointsDetail = $command3->queryAll();
+        ))
+            ->queryAll();
 
-        if (!empty($userPointsDetail)) {
-            foreach ($userPointsDetail as $v) {
+        if (!empty($integral_total)) {
+            foreach ($integral_total as $v) {
                 if ($v['balance_of_payments'] == POINT_PAYMENT_PAY)
                     $user_total_get_score += $v['points'];
                 if ($v->balance_of_payments == BALANCE_OF_PAYMENTS_REFUND)
@@ -480,10 +457,10 @@ class UserManageController extends CrmController
         $criteria->addInCondition('order_status', $allowed_types);
         $criteria->params[':order_type'] = ORDER_TYPE_CASHIER;
         $criteria->params[':user_id'] = $user_id;
-        $wechat_user_id = $user->wechat_id ? $user->wechat_id : -1;
-        $alipay_user_id = $user->alipay_fuwu_id ? $user->alipay_fuwu_id : -1;
-        $criteria->params[':wechat_user_id'] = $wechat_user_id;
-        $criteria->params[':alipay_user_id'] = $alipay_user_id;
+        $weChat_user_id = $user->wechat_id ? $user->wechat_id : -1;
+        $aliPay_user_id = $user->alipay_fuwu_id ? $user->alipay_fuwu_id : -1;
+        $criteria->params[':wechat_user_id'] = $weChat_user_id;
+        $criteria->params[':alipay_user_id'] = $aliPay_user_id;
         $criteria->params[':pay_status'] = ORDER_STATUS_PAID;
 
         if (!empty($pay_time)) {
@@ -526,8 +503,8 @@ class UserManageController extends CrmController
         $allowed_types_Str = "('" . implode("','", $allowed_types) . "')";
         $user_store_orders = Order::model()->findAll('(user_id=:user_id or wechat_user_id=:wechat_user_id or alipay_user_id=:alipay_user_id) AND flag=:flag AND order_type=:order_type AND pay_status=:pay_status AND order_status IN ' . $allowed_types_Str . ' order by create_time asc', array(
             ':user_id' => $user_id,
-            ':wechat_user_id' => $wechat_user_id,
-            ':alipay_user_id' => $alipay_user_id,
+            ':weChat_user_id' => $weChat_user_id,
+            ':aliPay_user_id' => $aliPay_user_id,
             ':flag' => FLAG_NO,
             ':order_type' => ORDER_TYPE_CASHIER,
             ':pay_status' => ORDER_STATUS_PAID
@@ -541,8 +518,8 @@ class UserManageController extends CrmController
         if (!empty($user_store_orders)) {
             foreach ($user_store_orders as $order) {
                 if ($order->order_status == ORDER_STATUS_NORMAL) {
-                    $shishou = $order->order_paymoney - $order->coupons_money - $order->discount_money - $order->merchant_discount_money;
-                    $user_xf_total_money += $shishou;
+                    $actual_amount = $order->order_paymoney - $order->coupons_money - $order->discount_money - $order->merchant_discount_money;
+                    $user_xf_total_money += $actual_amount;
                     $user_xf_total_num++;
                 }
             }
@@ -581,22 +558,22 @@ class UserManageController extends CrmController
         $user = User::model()->findByPk($user_id);
 
         //数据合并
-        $user_wechat_user_id = $user->wechat_id ? $user->wechat_id : -1;
-        $user_alipay_user_id = $user->alipay_fuwu_id ? $user->alipay_fuwu_id : -1;
-        $users = User::model()->findAll('id=' . $user_id . ' OR wechat_id=\'' . $user_wechat_user_id . '\' OR alipay_fuwu_id=\'' . $user_alipay_user_id . '\'');
-//         var_dump($users);
-        $uids = array();
+        $user_weChat_user_id = $user->wechat_id ? $user->wechat_id : -1;
+        $user_aliPay_user_id = $user->alipay_fuwu_id ? $user->alipay_fuwu_id : -1;
+        $users = User::model()->findAll('id=' . $user_id . ' OR wechat_id=\'' . $user_weChat_user_id . '\' OR alipay_fuwu_id=\'' . $user_aliPay_user_id . '\'');
+
+        $userIds = array();
         foreach ($users as $v) {
-            $uids[] = $v->id;
+            $userIds[] = $v->id;
         }
-        $inStr = "('" . implode("','", $uids) . "')";
+        $inStr = "('" . implode("','", $userIds) . "')";
 
         if (empty($user_id))
             exit('非法访问！');
 
 
         $criteria = new CDbCriteria();
-        $criteria->addInCondition('user_id', $uids);
+        $criteria->addInCondition('user_id', $userIds);
 
         if (!empty($point_time)) {
             $point_time_arr = explode('-', $point_time);
@@ -619,15 +596,15 @@ class UserManageController extends CrmController
         $pages->pageSize = Yii::app()->params['perPage'];
         $pages->applyLimit($criteria);
 
-        $pointDetailes = UserPointsdetail::model()->findAll($criteria);
+        $pointDetails = UserPointsdetail::model()->findAll($criteria);
 
         $point_types = $GLOBALS['__BALANCE_OF_PAYMENTS'];
         $point_froms = $GLOBALS['__USER_POINTS_DETAIL_FROM'];
 
-        $pointAllDetailes = UserPointsdetail::model()->findAll('user_id IN ' . $inStr);
+        $pointAllDetails = UserPointsdetail::model()->findAll('user_id IN ' . $inStr);
 
         $total_get_points = 0;
-        foreach ($pointAllDetailes as $k => $v) {
+        foreach ($pointAllDetails as $k => $v) {
             if ($v->balance_of_payments == BALANCE_OF_PAYMENTS_INCOME)
                 $total_get_points += $v->points;
             if ($v->balance_of_payments == BALANCE_OF_PAYMENTS_REFUND)
@@ -636,7 +613,7 @@ class UserManageController extends CrmController
 
         $this->render('user_points', array(
             'user' => $user,
-            'pointDetailes' => $pointDetailes,
+            'pointDetailes' => $pointDetails,
             'total_get_points' => $total_get_points,
             'point_types' => $point_types,
             'point_froms' => $point_froms,
@@ -657,16 +634,16 @@ class UserManageController extends CrmController
         $user = User::model()->findByPk($user_id);
 
         //数据合并
-        $user_wechat_user_id = $user->wechat_id?$user->wechat_id:-1;
-        $user_alipay_user_id = $user->alipay_fuwu_id?$user->alipay_fuwu_id:-1;
-        $users = User::model()->findAll('id='.$user_id.' OR wechat_id=\''.$user_wechat_user_id.'\' OR alipay_fuwu_id=\''.$user_alipay_user_id.'\'');
-//                 var_dump($users);
-        $uids = array();
+        $user_weChat_user_id = $user->wechat_id?$user->wechat_id:-1;
+        $user_aliPay_user_id = $user->alipay_fuwu_id?$user->alipay_fuwu_id:-1;
+        $users = User::model()->findAll('id='.$user_id.' OR wechat_id=\''.$user_weChat_user_id.'\' OR alipay_fuwu_id=\''.$user_aliPay_user_id.'\'');
+
+        $userIds = array();
         foreach ($users as $v)
         {
-            $uids[] = $v->id;
+            $userIds[] = $v->id;
         }
-        $inStr = "('".implode("','", $uids)."')";
+        $inStr = "('".implode("','", $userIds)."')";
 
         $stored_time = isset($_GET['stored_time'])?$_GET['stored_time']:'';
         $criteria = new CDbCriteria();
@@ -678,7 +655,7 @@ class UserManageController extends CrmController
             $criteria->addBetweenCondition('pay_time', $stored_time_start, $stored_time_end);
         }
 
-        $criteria->addInCondition('user_id', $uids);
+        $criteria->addInCondition('user_id', $userIds);
 
         //获取当前商户储值活动
         $storeds = Stored::model()->findAll('merchant_id='.$merchant_id.' and flag='.FLAG_NO);
@@ -707,7 +684,7 @@ class UserManageController extends CrmController
 
         $total_money = 0;
         $total_money_leiji = 0;
-        $total_money_shishou = 0;
+        $total_money_actual_amount = 0;
         if(!empty($all_stored_lists))
         {
             foreach($all_stored_lists as $item)
@@ -715,19 +692,19 @@ class UserManageController extends CrmController
                 if($item->order_status == ORDER_STATUS_NORMAL)
                 {
                     $total_money += $item->num*$item->stored->get_money;
-                    $total_money_shishou += $item->num*$item->stored->stored_money;
+                    $total_money_actual_amount += $item->num*$item->stored->stored_money;
                 }
             }
         }
-        $total_money_leiji = $total_money+$total_money_shishou;
+        $total_money_leiji = $total_money+$total_money_actual_amount;
 
         $this->render('user_stored', array(
             'stored_lists'=>$stored_lists,
             'all_stored_lists'=>$all_stored_lists,
-            'total_money_shishou'=>$total_money_shishou,
+            'total_money_shishou'=>$total_money_actual_amount,
             'total_money_leiji'=>$total_money_leiji,
             'user'=>$user,
-//             'total_stored'=>$total_stored,
+
             'pages'=>$pages,
             'order_status'=>$order_status,
         ));
@@ -744,17 +721,17 @@ class UserManageController extends CrmController
             exit('非法访问');
 
         $user = User::model()->findByPk($user_id);
-        $wechat_user_id = $user->wechat_id;
-        $alipay_user_id = $user->alipay_fuwu_id;
+        $weChat_user_id = $user->wechat_id;
+        $aliPay_user_id = $user->alipay_fuwu_id;
         $criteria = new CDbCriteria();
         $criteria->addInCondition('order_type', array(ORDER_TYPE_OBJECT, ORDER_TYPE_VIRTUAL));
         $criteria->addCondition('flag='.FLAG_NO);
-        if(!empty($wechat_user_id) || !empty($alipay_user_id))
+        if(!empty($weChat_user_id) || !empty($aliPay_user_id))
         {
             $criteria->addCondition('user_id=:user_id or wechat_user_id=:wechat_user_id or alipay_user_id=:alipay_user_id');
             $criteria->params[':user_id'] = $user_id;
-            $criteria->params[':wechat_user_id'] = $wechat_user_id;
-            $criteria->params[':alipay_user_id'] = $alipay_user_id;
+            $criteria->params[':weChat_user_id'] = $weChat_user_id;
+            $criteria->params[':aliPay_user_id'] = $aliPay_user_id;
         }
 
         $user_shop_orders = Order::model()->findAll($criteria);
@@ -802,10 +779,8 @@ class UserManageController extends CrmController
 
         //如果是一个人则覆盖操作
         if(substr_count($userStr, ',')<1){
-            $db = Yii::app()->db;
             $sql = "delete from wq_group where user_id=".$userStr;
-            $command = $db->createCommand($sql);
-            $res = $command->query();
+            $db = Yii::app()->db->createCommand($sql)->query();
         }
 
         foreach ($groups as $group){
@@ -824,38 +799,19 @@ class UserManageController extends CrmController
      */
     public function actionAddTag()
     {
-        $userc = new UserC();
+        $userC = new UserC();
         $userStr    = $_POST['users'];
         $tagStr    = $_POST['tags'];
         $users      = explode(',', $userStr);
         $tags       = explode(',', $tagStr);
-//         print_r($tags);print_r($users);
-        /*
-         * $user = new UserC();
-                $tag_value = array();
-                if($_POST){
-                    $user_id = $_GET['id'];
-                    if(!empty($_POST['tag']) && $_POST['tag']){
-                        foreach($_POST['tag'] as $v){
-                            $tag_value[] = $v;
-                        }
-                    }
-                    $ret = $user->UserTag($user_id, $tag_value);
-                    $result = json_decode($ret,true);
-                    if($result['status'] == ERROR_NONE){
-                        $this->redirect($_GET['goUrl']);
-                    }
-                }
-         *  */
+
         if(substr_count($userStr, ',')<1){
-            $db = Yii::app()->db;
             $sql = "delete from wq_user_tag where user_id=".$userStr;
-            $command = $db->createCommand($sql);
-            $res = $command->query();
+            $db = Yii::app()->db->createCommand($sql)->query();
         }
         foreach ($users as $v)
         {
-            $ret = $userc->UserTag($v, $tags);
+            $ret = $userC->UserTag($v, $tags);
             $result = json_decode($ret,true);
             if($result['status'] == ERROR_NONE){
 //                 $this->redirect($_GET['goUrl']);
@@ -902,7 +858,7 @@ class UserManageController extends CrmController
 
     public function actionPopStore()
     {
-//         echo '弹窗';
+
         $merchant_id = Yii::app()->session['merchant_id'];
         $storeC = new StoreC();
         $pca = new Selector();
@@ -920,7 +876,7 @@ class UserManageController extends CrmController
 
         $criteria = new CDbCriteria();
         $criteria->addCondition('merchant_id='.$merchant_id);
-//         $criteria->addCondition('flag='.FLAG_NO);
+
         $province = json_decode($storeC -> getProvince());
         $province = $province->data;
 

@@ -253,9 +253,7 @@ class UserC extends mainClass {
 				$model -> rule_type = $v['rule_type'];
 				$model -> birthday_rate = $v['birthday_rate'];
 				
-// 				if($model -> flag == FLAG_YES){
-// 					$model -> flag ==FLAG_NO;
-// 				}
+
 				if($model -> update()){
 				}else {
 					$error++;
@@ -302,7 +300,7 @@ class UserC extends mainClass {
 	
 	/**
 	 * 获取会员等级设置
-	 * $merchant_id 商户id
+	 * @param int $merchant_id 商户id
 	 */
 	public function getSetUserGrade($merchant_id)
 	{
@@ -324,7 +322,7 @@ class UserC extends mainClass {
 		$model = UserGrade::model()->findAll($criteria);
 		$countusergrade = UserGrade::model()->count($criteria);
 		$data = array ();
-                $datas = array();
+                $dataS = array();
 		if(!empty($model)){
 			foreach ( $model as $k => $v ) {
               	if($v['if_default'] == USER_GRADE_DEFAULT_NO)
@@ -348,25 +346,25 @@ class UserC extends mainClass {
 			}
            	$grade = UserGrade::model()->find('merchant_id=:merchant_id and if_default=:if_default and flag=:flag',array(':merchant_id'=>$merchant_id,':if_default'=>USER_GRADE_DEFAULT_YES,':flag'=>FLAG_NO));
            	if(!empty($grade)) {      
-              	$datas ['list'] ['id'] = $grade->id;
-               	$datas ['list'] ['name'] = $grade->name;
-               	$datas ['list'] ['points_rule'] = $grade->points_rule;
-               	$datas ['list'] ['points_ratio'] = $grade->points_ratio;
-               	$datas ['list'] ['discount'] = $grade->discount*10;
-              	$datas ['list'] ['create_time'] = $grade->create_time;
-              	$datas ['list'] ['discount_illustrate'] = $grade->discount_illustrate;
-               	$datas ['list'] ['membercard_img'] = $grade->membercard_img;
-               	$datas ['list'] ['membership_card_name'] = $grade->membership_card_name; 
-               	$datas ['list'] ['if_hideword'] = $grade->if_hideword;
+              	$dataS ['list'] ['id'] = $grade->id;
+               	$dataS ['list'] ['name'] = $grade->name;
+               	$dataS ['list'] ['points_rule'] = $grade->points_rule;
+               	$dataS ['list'] ['points_ratio'] = $grade->points_ratio;
+               	$dataS ['list'] ['discount'] = $grade->discount*10;
+              	$dataS ['list'] ['create_time'] = $grade->create_time;
+              	$dataS ['list'] ['discount_illustrate'] = $grade->discount_illustrate;
+               	$dataS ['list'] ['membercard_img'] = $grade->membercard_img;
+               	$dataS ['list'] ['membership_card_name'] = $grade->membership_card_name;
+               	$dataS ['list'] ['if_hideword'] = $grade->if_hideword;
                	$count = $this -> getUserCount($grade->id,$merchant_id);
-              	$datas ['list'] ['count'] = $count;
-              	$datas ['list'] ['if_default'] = $grade -> if_default;
-              	$datas ['list'] ['rule_type'] = $grade->rule_type;
-              	$datas ['list'] ['birthday_rate'] = $grade->birthday_rate;
+              	$dataS ['list'] ['count'] = $count;
+              	$dataS ['list'] ['if_default'] = $grade -> if_default;
+              	$dataS ['list'] ['rule_type'] = $grade->rule_type;
+              	$dataS ['list'] ['birthday_rate'] = $grade->birthday_rate;
          	}
 			$result ['status'] = ERROR_NONE;
 			$result ['data']  = $data;
-                        $result ['datas'] = $datas;
+                        $result ['datas'] = $dataS;
                         $result ['countusergrade'] = $countusergrade;
 		}else{
 			$result ['status'] = ERROR_NO_DATA;
@@ -400,7 +398,7 @@ class UserC extends mainClass {
 		$model = UserGradeDraft::model()->findAll($criteria);
 		$countusergrade = UserGradeDraft::model()->count($criteria);
 		$data = array ();
-		$datas = array();
+		$dataS = array();
 		if(!empty($model)){
 			foreach ( $model as $k => $v ) {
 				if($v['if_default'] == USER_GRADE_DEFAULT_NO)
@@ -2380,71 +2378,15 @@ class UserC extends mainClass {
         				//查询会员信息
         				$model = User::model()->find('merchant_id = :merchant_id and id = :id',
         						array(':merchant_id' => $merchant_id, ':id' => $v));
-//        				if (empty($model)) {
-//        					$result['status'] = ERROR_NO_DATA;
-//        					throw new Exception('会员('.$v.')不存在，无法进行移动操作');
-//        				}
-        				//比较两个等级的高低（积分要求的高低）
-//        				$old_grade = UserGrade::model()->find('merchant_id = :merchant_id and flag = :flag and id = :id',
-//        					array(':merchant_id' => $merchant_id, ':flag' => FLAG_NO, ':id' => $old_id));
-//        				if (empty($old_grade)) {
-//        					$result['status'] = ERROR_NO_DATA;
-//        					throw new Exception('会员等级('.$old_id.')不存在，无法进行移动操作');
-//        				}
-        				//从高会员等级移到低会员等级且会员受积分限制时，禁止移动
-//        				if ($grade['points_rule'] < $old_grade['points_rule'] && $model['switch'] == POINTS_LIMIT) {
-//        					$result['status'] = ERROR_EXCEPTION;
-//        					throw new Exception('会员('.$v.')无法向低的会员等级移动');
-//        				}
-        				//从高会员等级移到低会员等级且会员不受积分限制时，根据会员当前积分设置相应的会员等级
-//        				if ($grade['points_rule'] < $old_grade['points_rule'] && $model['switch'] == POINTS_LIMIT_NO) {
-        					$new_grade = UserGrade::model()->find(array(
-        							'condition' => 'merchant_id = :merchant_id and flag = :flag and points_rule <= :points',
-        							'order' => 'points_rule desc',
-        							'params' => array(':merchant_id' => $merchant_id, ':flag' => FLAG_NO, ':points' => $model['points'])
-        					));
-//        					if (empty($new_grade)) {
-//        						$result['status'] = ERROR_NO_DATA;
-//        						throw new Exception('系统内部错误');
-//        					}
-        					//修改会员等级，修改移动标识
-//        					$model['membershipgrade_id'] = $new_grade['id'];
-//        					$model['switch'] = POINTS_LIMIT;
-//        				}
 
-        				//从低会员等级移到高会员等级
-//        				if ($grade['points_rule'] > $old_grade['points_rule']) {
-//        					//修改会员等级，修改移动标识
-        					$model['membershipgrade_id'] = $new_id;
-        					$model['switch'] = POINTS_LIMIT_NO;
-//        				}
-        				
         				if (!$model->save()) {
         					$result['status'] = ERROR_SAVE_FAIL;
         					throw new Exception('会员等级修改失败');
         				}
         			}
-//        			if ($old_type != 'grade') {
-//        				$result['status'] = ERROR_PARAMETER_FORMAT;
-//        				throw new Exception('无法将原分组会员添加或移动到该分组下');
-//        			}
-//        			if ($operation != 'move') {
-//        				$result['status'] = ERROR_PARAMETER_FORMAT;
-//        				throw new Exception('无法进行添加操作');
-//        			}
-//        			//修改标识
-//        			$modify = true;
+
         		}elseif ($new_type == 'default') {
-//        			if ($old_type != 'custom') {
-//        				$result['status'] = ERROR_PARAMETER_FORMAT;
-//        				throw new Exception('无法将原分组会员添加或移动到该分组下');
-//        			}
-//        			if ($operation != 'move') {
-//        				$result['status'] = ERROR_PARAMETER_FORMAT;
-//        				throw new Exception('无法进行添加操作');
-//        			}
-//        			//删除原分组标识
-//        			$delete = true;
+
         		}else
                         if ($new_type == 'custom') {
         			if ($operation == 'add') {
@@ -2513,8 +2455,7 @@ class UserC extends mainClass {
         					$result['status'] = ERROR_NO_DATA;
         					throw new Exception('会员('.$v.')不存在，无法进行添加操作');
         				}
-//        				$tmp = $model['group_id'];
-//        				$tmp .= ','.$new_id.',';
+
                                         $group = Group::model()->find('flag=:flag and group_id=:group_id and user_id=:user_id',array(
                                             ':flag'=>FLAG_NO,
                                             ':group_id' => $new_id,
@@ -3413,14 +3354,7 @@ class UserC extends mainClass {
                                 $criteria->addCondition('alipay_user_id=:alipay_user_id');
                                 $criteria->params[':alipay_user_id'] = $alipay_user_id;
                             }
-                            /*
-                            $criteria->addCondition('user_id=:user_id or wechat_user_id=:wechat_user_id or alipay_user_id=:alipay_user_id');
-                            $criteria->params[':user_id'] = $id;
-                            $wechat_user_id = $user->wechat_id;
-                            $criteria->params[':wechat_user_id'] = "$wechat_user_id";
-                            $alipay_user_id = $user->alipay_fuwu_id;
-                            $criteria->params[':alipay_user_id'] = "$alipay_user_id";
-                            */
+
                             //分页
                             $pages = new CPagination(Order::model()->count($criteria));
                             $pages->pageSize = Yii::app() -> params['perPage'];

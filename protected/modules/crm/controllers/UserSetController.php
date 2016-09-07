@@ -8,9 +8,9 @@ class UserSetController extends CrmController{
      * 设置会员认证所需资料填写
      */
     public function actionAuthSettings(){
-        $userc = new UserC();
+        $user_auth = new UserC();
         $merchant_id = Yii::app()->session['merchant_id'];
-        $result = $userc->getAuthSet($merchant_id);
+        $result = $user_auth->getAuthSet($merchant_id);
         $this->render('authSettings',array('authset'=>$result));
     }
 
@@ -27,10 +27,10 @@ class UserSetController extends CrmController{
                 }
             }
         }
-        $authset = implode(',', $arr);
-        $userc = new UserC();
+        $authSet = implode(',', $arr);
+        $user_auth = new UserC();
         $merchant_id = Yii::app()->session['merchant_id'];
-        $result = $userc->saveAuthSet($merchant_id, $authset);
+        $result = $user_auth->saveAuthSet($merchant_id, $authSet);
         $result = json_decode($result,true);
         if($result['status'] == ERROR_NONE){
             $url = $this->createUrl('authsettings');

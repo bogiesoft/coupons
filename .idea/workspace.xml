@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c8e9613-9f2c-4d6f-8207-069fbd956948" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/framework/yii.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/class/crm/U.php" afterPath="$PROJECT_DIR$/protected/class/crm/U.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/class/wq/FilterUserClass.php" afterPath="$PROJECT_DIR$/protected/class/wq/FilterUserClass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/User.php" afterPath="$PROJECT_DIR$/protected/models/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/UserGrade.php" afterPath="$PROJECT_DIR$/protected/models/UserGrade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/controllers/IntegralController.php" afterPath="$PROJECT_DIR$/protected/modules/crm/controllers/IntegralController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/controllers/IntegralExchangeController.php" afterPath="$PROJECT_DIR$/protected/modules/crm/controllers/IntegralExchangeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/class/crm/UserC.php" afterPath="$PROJECT_DIR$/protected/class/crm/UserC.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/components/CrmController.php" afterPath="$PROJECT_DIR$/protected/modules/crm/components/CrmController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php" afterPath="$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/controllers/UserGradeController.php" afterPath="$PROJECT_DIR$/protected/modules/crm/controllers/UserGradeController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php" afterPath="$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/controllers/UserSetController.php" afterPath="$PROJECT_DIR$/protected/modules/crm/controllers/UserSetController.php" />
     </list>
     <ignored path="coupons.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,34 +30,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="integralExchangeDialog.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/integralExchange/integralExchangeDialog.php">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5013">
+              <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+              <folding>
+                <element signature="e#6#63#0#PHP" expanded="true" />
+                <marker date="1473232130479" expanded="true" signature="30967:31002" ph="delete from " />
+                <marker date="1473232130479" expanded="true" signature="31846:31884" ph="delete from " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="U.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/class/crm/U.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-666">
+              <caret line="483" column="2" selection-start-line="483" selection-start-column="2" selection-end-line="483" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserUC.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/class/crm/UserUC.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IntegralExchangeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/IntegralExchangeController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2331">
-              <caret line="125" column="16" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="260" column="8" selection-start-line="260" selection-start-column="8" selection-end-line="260" selection-end-column="8" />
               <folding>
-                <marker date="1473155312716" expanded="true" signature="32260:32295" ph="delete from " />
-                <marker date="1473155312716" expanded="true" signature="33892:33930" ph="delete from " />
+                <marker date="1472177431672" expanded="true" signature="25731:25855" ph="SELECT u.*, wq_user_coupons" />
+                <marker date="1472177431672" expanded="true" signature="164273:164407" ph="select sum(o... wq_order" />
+                <marker date="1472177431672" expanded="true" signature="164600:164736" ph="select sum(u... wq_order" />
+                <marker date="1472177431672" expanded="true" signature="164925:165057" ph="select sum(c... wq_order" />
+                <marker date="1472177431672" expanded="true" signature="165248:165382" ph="select sum(s... wq_order" />
+                <marker date="1472177431672" expanded="true" signature="168320:168475" ph="select sum(o... wq_order" />
+                <marker date="1472177431672" expanded="true" signature="168668:168825" ph="select sum(u... wq_order" />
+                <marker date="1472177431672" expanded="true" signature="169014:169167" ph="select sum(c... wq_order" />
+                <marker date="1472177431672" expanded="true" signature="169358:169513" ph="select sum(s... wq_order" />
+                <marker date="1472177431672" expanded="true" signature="172472:172627" ph="select sum(o... wq_order" />
+                <marker date="1472177431672" expanded="true" signature="172820:172977" ph="select sum(u... wq_order" />
+                <marker date="1472177431672" expanded="true" signature="173166:173319" ph="select sum(c... wq_order" />
+                <marker date="1472177431672" expanded="true" signature="173510:173665" ph="select sum(s... wq_order" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserC.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/class/crm/UserC.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="677" column="24" selection-start-line="672" selection-start-column="4" selection-end-line="683" selection-end-column="5" />
+              <folding>
+                <marker date="1473238778572" expanded="true" signature="132245:132479" ph="select sum(o... wq_order" />
               </folding>
             </state>
           </provider>
@@ -87,62 +110,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="yiic" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/framework/yiic">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-              <folding>
-                <element signature="e#25#311#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UserGroupController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="368" column="7" selection-start-line="368" selection-start-column="7" selection-end-line="368" selection-end-column="7" />
+            <state relative-caret-position="114">
+              <caret line="387" column="29" selection-start-line="387" selection-start-column="29" selection-end-line="387" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilterUserClass.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/class/wq/FilterUserClass.php">
+      <file leaf-file-name="UserSetController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserSetController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-53">
-              <caret line="859" column="73" selection-start-line="859" selection-start-column="73" selection-end-line="859" selection-end-column="73" />
-              <folding>
-                <marker date="1473130603976" expanded="true" signature="5881:6076" ph="SELECT SUM(r... wq_refund_record" />
-                <marker date="1473130603976" expanded="true" signature="6122:6317" ph="SELECT order... wq_order" />
-                <marker date="1473130603976" expanded="true" signature="6355:6652" ph="SELECT id, S... wq_user" />
-                <marker date="1473130603976" expanded="true" signature="8238:8364" ph="SELECT SUM(r... wq_refund_record" />
-                <marker date="1473130603976" expanded="true" signature="8389:8575" ph="SELECT order... wq_order" />
-                <marker date="1473130603976" expanded="true" signature="8612:8826" ph="SELECT id, S... wq_user" />
-                <marker date="1473130603976" expanded="true" signature="8876:8941" ph="SELECT id, u... wq_order" />
-                <marker date="1473130603976" expanded="true" signature="8987:9194" ph="SELECT wq_us... wq_user" />
-                <marker date="1473130603976" expanded="true" signature="9231:9485" ph="SELECT paymo... ${$user_sql}" />
-                <marker date="1473130603976" expanded="true" signature="11205:11398" ph="SELECT SUM(r... wq_refund_record" />
-                <marker date="1473130603976" expanded="true" signature="11446:11976" ph="SELECT id, o... wq_user" />
-                <marker date="1473130603976" expanded="true" signature="11549:11744" ph="SELECT order... wq_order" />
-                <marker date="1473130603976" expanded="true" signature="12002:12131" ph="SELECT id, u... ${$order_sql}" />
-                <marker date="1473130603976" expanded="true" signature="13688:13750" ph="SELECT wecha... wq_order" />
-                <marker date="1473130603976" expanded="true" signature="13788:14143" ph="SELECT id, c... wq_user" />
-                <marker date="1473130603976" expanded="true" signature="15697:15778" ph="SELECT user_... " />
-                <marker date="1473130603976" expanded="true" signature="15816:16109" ph="SELECT id, c... wq_user" />
-                <marker date="1473130603976" expanded="true" signature="17328:17400" ph="SELECT pay_t... wq_order" />
-                <marker date="1473130603976" expanded="true" signature="17438:17882" ph="SELECT id,ti... id" />
-                <marker date="1473130603976" expanded="true" signature="17552:17825" ph="SELECT id, o... wq_user" />
-                <marker date="1473130603976" expanded="true" signature="25747:25757" ph="..." />
-                <marker date="1473130603976" expanded="true" signature="25944:25954" ph="..." />
-                <marker date="1473130603976" expanded="true" signature="26141:26151" ph="..." />
-                <marker date="1473130603976" expanded="true" signature="26334:26344" ph="..." />
-                <marker date="1473130603976" expanded="true" signature="26555:26565" ph="..." />
-                <marker date="1473130603976" expanded="true" signature="26736:26746" ph="..." />
-                <marker date="1473130603976" expanded="true" signature="27051:27061" ph="..." />
-              </folding>
+            <state relative-caret-position="347">
+              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -150,8 +133,18 @@
       <file leaf-file-name="UserGradeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserGradeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="1082" column="40" selection-start-line="1082" selection-start-column="40" selection-end-line="1082" selection-end-column="40" />
+            <state relative-caret-position="-249">
+              <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CrmController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/modules/crm/components/CrmController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5415">
+              <caret line="285" column="5" selection-start-line="285" selection-start-column="5" selection-end-line="285" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -166,17 +159,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/protected/class/crm/UserC.php" />
         <option value="$PROJECT_DIR$/protected/models/UserGrade.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/protected/models/User.php" />
-        <option value="$PROJECT_DIR$/protected/class/crm/U.php" />
         <option value="$PROJECT_DIR$/protected/modules/crm/controllers/IntegralController.php" />
         <option value="$PROJECT_DIR$/protected/class/wq/FilterUserClass.php" />
-        <option value="$PROJECT_DIR$/protected/modules/crm/controllers/UserGradeController.php" />
-        <option value="$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php" />
         <option value="$PROJECT_DIR$/protected/modules/crm/controllers/IntegralExchangeController.php" />
         <option value="$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php" />
+        <option value="$PROJECT_DIR$/protected/modules/crm/controllers/UserSetController.php" />
+        <option value="$PROJECT_DIR$/protected/class/crm/U.php" />
+        <option value="$PROJECT_DIR$/protected/class/crm/UserC.php" />
+        <option value="$PROJECT_DIR$/protected/modules/crm/components/CrmController.php" />
+        <option value="$PROJECT_DIR$/protected/modules/crm/controllers/UserGradeController.php" />
       </list>
     </option>
   </component>
@@ -189,7 +184,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1370" />
+    <option name="width" value="1376" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -217,6 +212,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -326,13 +322,78 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="class" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="class" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="framework" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -409,21 +470,23 @@
       <workItem from="1473042275610" duration="5341000" />
       <workItem from="1473064556339" duration="4378000" />
       <workItem from="1473125862506" duration="20248000" />
+      <workItem from="1473213049254" duration="2114000" />
+      <workItem from="1473228121344" duration="12143000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47035000" />
+    <option name="totallyTimeSpent" value="61292000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1370" height="744" extended-state="0" />
+    <frame x="-8" y="0" width="1376" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24779412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -454,13 +517,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6121">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/layouts/newMain.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4809">
@@ -591,7 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -599,7 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,7 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -615,7 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -623,7 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -631,7 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -639,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -655,7 +704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -671,7 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -687,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -703,7 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -711,55 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/crm/UserUC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1472177431672" expanded="true" signature="25731:25855" ph="SELECT u.*, wq_user_coupons" />
-            <marker date="1472177431672" expanded="true" signature="164273:164407" ph="select sum(o... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="164600:164736" ph="select sum(u... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="164925:165057" ph="select sum(c... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="165248:165382" ph="select sum(s... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="168320:168475" ph="select sum(o... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="168668:168825" ph="select sum(u... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="169014:169167" ph="select sum(c... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="169358:169513" ph="select sum(s... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="172472:172627" ph="select sum(o... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="172820:172977" ph="select sum(u... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="173166:173319" ph="select sum(c... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="173510:173665" ph="select sum(s... wq_order" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/crm/U.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/crm/UserC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3762">
-          <caret line="198" column="0" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
-          <folding>
-            <marker date="1472546288636" expanded="true" signature="135664:135898" ph="select sum(o... wq_order" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserSetController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -767,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="535">
           <caret line="219" column="32" selection-start-line="219" selection-start-column="32" selection-end-line="219" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -781,7 +776,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/class/wq/FilterUserClass.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-53">
+        <state relative-caret-position="16321">
           <caret line="859" column="73" selection-start-line="859" selection-start-column="73" selection-end-line="859" selection-end-column="73" />
           <folding>
             <marker date="1473130603976" expanded="true" signature="5881:6076" ph="SELECT SUM(r... wq_refund_record" />
@@ -815,17 +810,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserGradeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="1082" column="40" selection-start-line="1082" selection-start-column="40" selection-end-line="1082" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/IntegralExchangeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2331">
+        <state relative-caret-position="2375">
           <caret line="125" column="16" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="16" />
           <folding />
         </state>
@@ -862,27 +849,12 @@
         <state relative-caret-position="38">
           <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
           <folding>
-            <element signature="e#25#311#0#PHP" expanded="true" />
+            <element signature="e#25#311#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="368" column="7" selection-start-line="368" selection-start-column="7" selection-end-line="368" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework/yii.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/yii.php" />
     <entry file="file://$PROJECT_DIR$/protected/yiic.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -899,14 +871,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserSetController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/class/crm/U.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-666">
+          <caret line="483" column="2" selection-start-line="483" selection-start-column="2" selection-end-line="483" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/class/crm/UserUC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1472177431672" expanded="true" signature="25731:25855" ph="SELECT u.*, wq_user_coupons" />
+            <marker date="1472177431672" expanded="true" signature="164273:164407" ph="select sum(o... wq_order" />
+            <marker date="1472177431672" expanded="true" signature="164600:164736" ph="select sum(u... wq_order" />
+            <marker date="1472177431672" expanded="true" signature="164925:165057" ph="select sum(c... wq_order" />
+            <marker date="1472177431672" expanded="true" signature="165248:165382" ph="select sum(s... wq_order" />
+            <marker date="1472177431672" expanded="true" signature="168320:168475" ph="select sum(o... wq_order" />
+            <marker date="1472177431672" expanded="true" signature="168668:168825" ph="select sum(u... wq_order" />
+            <marker date="1472177431672" expanded="true" signature="169014:169167" ph="select sum(c... wq_order" />
+            <marker date="1472177431672" expanded="true" signature="169358:169513" ph="select sum(s... wq_order" />
+            <marker date="1472177431672" expanded="true" signature="172472:172627" ph="select sum(o... wq_order" />
+            <marker date="1472177431672" expanded="true" signature="172820:172977" ph="select sum(u... wq_order" />
+            <marker date="1472177431672" expanded="true" signature="173166:173319" ph="select sum(c... wq_order" />
+            <marker date="1472177431672" expanded="true" signature="173510:173665" ph="select sum(s... wq_order" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/class/crm/UserC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="677" column="24" selection-start-line="672" selection-start-column="4" selection-end-line="683" selection-end-column="5" />
+          <folding>
+            <marker date="1473238778572" expanded="true" signature="132245:132479" ph="select sum(o... wq_order" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="387" column="29" selection-start-line="387" selection-start-column="29" selection-end-line="387" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserGradeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-249">
+          <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="260" column="8" selection-start-line="260" selection-start-column="8" selection-end-line="260" selection-end-column="8" />
+        <state relative-caret-position="-5013">
+          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
           <folding>
-            <marker date="1473155312716" expanded="true" signature="32260:32295" ph="delete from " />
-            <marker date="1473155312716" expanded="true" signature="33892:33930" ph="delete from " />
+            <element signature="e#6#63#0#PHP" expanded="true" />
+            <marker date="1473232130479" expanded="true" signature="30967:31002" ph="delete from " />
+            <marker date="1473232130479" expanded="true" signature="31846:31884" ph="delete from " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/crm/components/CrmController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5415">
+          <caret line="285" column="5" selection-start-line="285" selection-start-column="5" selection-end-line="285" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>

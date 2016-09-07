@@ -27,14 +27,14 @@ class UserGroupController extends CrmController{
         $pages -> applyLimit($criteria);
 
         $userGroups = UserGroup::model()->findAll($criteria);
-        $allusers = User::model()->findAll('merchant_id=:merchant_id AND flag=:flag AND bind_status=:bind_status', array(':merchant_id'=>$merchant_id, ':flag'=>FLAG_NO, ':bind_status'=>USER_BIND_STATUS_UNBIND));
+        $user_list = User::model()->findAll('merchant_id=:merchant_id AND flag=:flag AND bind_status=:bind_status', array(':merchant_id'=>$merchant_id, ':flag'=>FLAG_NO, ':bind_status'=>USER_BIND_STATUS_UNBIND));
         $all_user_ids = array();
-        foreach($allusers as $k=>$v)
+        foreach($user_list as $k=>$v)
         {
             $all_user_ids[] = $v->id;
         }
 
-        $alluser = count($all_user_ids);
+        $user_list = count($all_user_ids);
 
         $list = array();
         foreach ($userGroups as $k=>$v)
@@ -45,13 +45,13 @@ class UserGroupController extends CrmController{
             if(isset($v['num']) && !empty($v['num']))
             {
                 $list[$k]['num'] = $v['num'];
-                $list[$k]['num_bfb'] = round(($v['num']/$alluser)*100,2);
+                $list[$k]['num_bfb'] = round(($v['num']/$user_list)*100,2);
             }
             else
             {
-                $vnum = count(Group::model()->findAll('group_id=:group_id AND flag=:flag', array(':group_id'=>$v['id'], ':flag'=>FLAG_NO)));
-                $list[$k]['num'] = $vnum;
-                $list[$k]['num_bfb'] = round(($vnum/$alluser)*100,2);
+                $user_group = count(Group::model()->findAll('group_id=:group_id AND flag=:flag', array(':group_id'=>$v['id'], ':flag'=>FLAG_NO)));
+                $list[$k]['num'] = $user_group;
+                $list[$k]['num_bfb'] = round(($user_group/$user_list)*100,2);
             }
         }
 
@@ -159,7 +159,7 @@ class UserGroupController extends CrmController{
             if(!empty($merchant_id) && !empty($expJson))
             {
                 try {
-                    $uids = $filterUserC->JiSuan('', $expJson);
+                    $userIds = $filterUserC->JiSuan('', $expJson);
 
                     //创建支付宝服务窗标签
                     $AliServiceWindowLabel = new AliServiceWindowLabel();
@@ -177,7 +177,7 @@ class UserGroupController extends CrmController{
                     }
                     $userGroup->save();
                     $group_id = $userGroup->id;
-                    foreach($uids as $v)
+                    foreach($userIds as $v)
                     {
                         $user = User::model()->findByPk($v);
                         $group_record = new Group();
@@ -250,7 +250,7 @@ class UserGroupController extends CrmController{
      */
     public function actionFilterStoreDialog()
     {
-//         var_dump($_GET['store_id_str']);exit;
+
         $store_lists = array();
         $key_word = '';
         if (isset($_GET['key_word'])) {
@@ -284,7 +284,7 @@ class UserGroupController extends CrmController{
         $pages -> pageSize = 5;
         $pages -> applyLimit($criteria);
 
-        $store = Store::model()->findAll($criteria);
+
 
         $store_lists = Store::model()->findAll($criteria);
 
@@ -347,8 +347,8 @@ class UserGroupController extends CrmController{
      */
     public function actionDelUserGroup($userGroupId)
     {
-        $u = new U();
-        $result = $u -> delUserGroup($userGroupId);
+        $userGroup = new U();
+        $result = $userGroup -> delUserGroup($userGroupId);
         $result = json_decode($result,true);
         if ($result['status'] == ERROR_NONE) {
             $this->redirect(array('userGroupList'));
@@ -362,10 +362,10 @@ class UserGroupController extends CrmController{
     {
         $name="";
         $merchant_id = Yii::app()->session['merchant_id'];
-        $u = new U();
+        $userGroup = new U();
         if(isset($_POST['UserGroup']) && !empty($_POST['UserGroup'])){
             extract($_POST['UserGroup']);
-            $res = $u -> addUserGroupSelf($merchant_id,$name);
+            $res = $userGroup -> addUserGroupSelf($merchant_id,$name);
             $res = json_decode($res,true);
             if($res['status'] == ERROR_NONE){
                 $this->redirect(array('userGroupList'));
@@ -381,11 +381,11 @@ class UserGroupController extends CrmController{
     {
         $name="";
         $merchant_id = Yii::app()->session['merchant_id'];
-        $u = new U();
-        $model = $u->getUserGroupDetail($userGroupId);
+        $userGroup = new U();
+        $model = $userGroup->getUserGroupDetail($userGroupId);
         if(isset($_POST['UserGroup']) && !empty($_POST['UserGroup'])){
             extract($_POST['UserGroup']);
-            $res = $u -> editUserGroupSelf($merchant_id,$name,$userGroupId);
+            $res = $userGroup -> editUserGroupSelf($merchant_id,$name,$userGroupId);
             $res = json_decode($res,true);
             if($res['status'] == ERROR_NONE){
                 $this->redirect(array('userGroupList'));

@@ -11,11 +11,11 @@ class UserGradeController extends CrmController{
     {
         $list = array();
         $lists = array();
-        $userC = new UserC();
+
         $merchant_id = Yii::app()->session['merchant_id'];
-        $Grade = json_decode($userC -> getSetUserGrade($merchant_id),true);
-        $GradeDraft = json_decode($userC -> getSetUserGradeDraft($merchant_id),true);
-        $res = $userC -> contrastGrade($Grade,$GradeDraft);
+        $Grade = json_decode($this -> getSetUserGrade($merchant_id),true);
+        $GradeDraft = json_decode($this -> getSetUserGradeDraft($merchant_id),true);
+        $res = $this -> contrastGrade($Grade,$GradeDraft);
 
         $num = 0;
         if (!empty($res['num'])){
@@ -316,9 +316,9 @@ class UserGradeController extends CrmController{
             }
 
         }
-        $userc = new UserC();
+        $userC = new UserC();
         $merchant_id = Yii::app()->session['merchant_id'];
-        $Grade = json_decode($userc -> getSetUserGrade($merchant_id),true);
+        $Grade = json_decode($userC -> getSetUserGrade($merchant_id),true);
         $list = $Grade['datas']['list'];
         if(!empty($list)){
             $type = $list['rule_type'];
@@ -339,7 +339,7 @@ class UserGradeController extends CrmController{
         $merchant_id = Yii::app()->session['merchant_id'];
         $model = $userC -> getUserGradeDraftDetails($id);
 
-        //var_dump($model);
+
         $flag = 0;
 
         if(isset($_POST['UserGrade']) && $_POST['UserGrade']){

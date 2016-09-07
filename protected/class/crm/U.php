@@ -1,5 +1,5 @@
 <?php
-include_once(dirname(__FILE__).'/../mainClass.php');
+
 
 class U extends mainClass
 {
@@ -481,10 +481,7 @@ class U extends mainClass
 				$sex_condition = trim($sex_condition, 'or');
 				$criteria -> addCondition($sex_condition);
 			}
-// 			if(!empty($sex_other)){
-// 				$criteria -> addCondition('sex is :sex','or');
-// 				$criteria -> params[':sex'] = null;
-// 			}
+//
 			if(!empty($regist_time)){
 				$regist_time_arr = explode('-',$regist_time);
 				$criteria -> addBetweenCondition('regist_time', $regist_time_arr[0].' 00:00:00', $regist_time_arr[1].' 23:59:59');
