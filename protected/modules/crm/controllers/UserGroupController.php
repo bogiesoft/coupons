@@ -347,8 +347,8 @@ class UserGroupController extends CrmController{
      */
     public function actionDelUserGroup($userGroupId)
     {
-        $userGroup = new U();
-        $result = $userGroup -> delUserGroup($userGroupId);
+
+        $result = $this -> delUserGroup($userGroupId);
         $result = json_decode($result,true);
         if ($result['status'] == ERROR_NONE) {
             $this->redirect(array('userGroupList'));
@@ -362,10 +362,10 @@ class UserGroupController extends CrmController{
     {
         $name="";
         $merchant_id = Yii::app()->session['merchant_id'];
-        $userGroup = new U();
+
         if(isset($_POST['UserGroup']) && !empty($_POST['UserGroup'])){
             extract($_POST['UserGroup']);
-            $res = $userGroup -> addUserGroupSelf($merchant_id,$name);
+            $res = $this -> addUserGroupSelf($merchant_id,$name);
             $res = json_decode($res,true);
             if($res['status'] == ERROR_NONE){
                 $this->redirect(array('userGroupList'));
@@ -381,11 +381,11 @@ class UserGroupController extends CrmController{
     {
         $name="";
         $merchant_id = Yii::app()->session['merchant_id'];
-        $userGroup = new U();
-        $model = $userGroup->getUserGroupDetail($userGroupId);
+
+        $model = $this->getUserGroupDetail($userGroupId);
         if(isset($_POST['UserGroup']) && !empty($_POST['UserGroup'])){
             extract($_POST['UserGroup']);
-            $res = $userGroup -> editUserGroupSelf($merchant_id,$name,$userGroupId);
+            $res = $this -> editUserGroupSelf($merchant_id,$name,$userGroupId);
             $res = json_decode($res,true);
             if($res['status'] == ERROR_NONE){
                 $this->redirect(array('userGroupList'));
