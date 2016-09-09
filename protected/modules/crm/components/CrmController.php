@@ -2,6 +2,9 @@
 class CrmController extends Controller
 {
     public $layout = 'main';
+    public $page = null;
+    public $page1 = null;
+    public $page2 = null;
 
     /**
      * 获取会员等级设置
@@ -876,6 +879,261 @@ class CrmController extends Controller
         } catch (Exception $e) {
             $result['status'] = isset($result['status'])?$result['status']:ERROR_EXCEPTION;
             $result['errMsg'] = $e->getMessage();
+        }
+        return json_encode($result);
+    }
+    //用户详情
+    /**
+     * merchantId 商户id
+     * account   账号
+     * id       会员id
+     */
+    public function UserDetail($merchantId,$id)
+    {
+        //返回结果
+        $result = array('status'=>1,'errMsg'=>'null','data'=>'null');
+        $flag   = 0;
+        if(isset($merchantId) && empty($merchantId))
+        {
+            $result['status'] = ERROR_PARAMETER_MISS;
+            $result['errMsg'] = '参数merchantId缺失';
+            $flag = 1;
+        }
+        if($flag == 0)
+        {
+            $data = array();
+            if(!empty($id))
+            {
+                $user = User::model()->find('id=:id and merchant_id=:merchant_id and flag=:flag',array(':id'=>$id,':merchant_id'=>$merchantId,':flag'=>FLAG_NO));
+                if($user){
+                    $data['type']                   = $user->type;//用户类型 1会员 2微信粉丝 3支付宝粉丝
+                    $data['account']                = $user->account;//账号
+                    $data['avatar']                 = $user->avatar;//头像
+                    $data['nickname']               = $user->nickname;//昵称
+                    $data['name']                   = $user->name;//真实姓名
+                    $data['sex']                    = $user->sex;//性别
+                    $data['birthday']               = $user->birthday;//生日
+                    $data['social_security_number'] = $user->social_security_number;//身份证
+                    $data['email']                  = $user->email;//邮箱
+                    $data['marital_status']         = $user->marital_status;//婚姻状况
+                    $data['work']                   = $user->work;//工作
+                    $data['free_secret']            = $user->free_secret;//小额免密金额
+                    $data['money']                  = $user->money;//储值金额
+                    $data['points']                 = $user->points;//会员积分
+                    $data['membershipgrade_id']     = $user->membershipgrade_id;//会员等级id
+                    //查询会员等级名称
+                    $grade = UserGrade::model()->findByPk($user['membershipgrade_id']);
+                    if (empty($grade)) {
+                        $data['grade_name'] = '无'; //会员等级名称
+                    }else {
+                        $data['grade_name'] = $grade['name']; //会员等级名称
+                    }
+                    $data['membership_card_no']     = $user->membership_card_no;//会员卡号
+                    $data['login_time']             = $user->login_time;//最后登录时间
+                    $data['login_ip']               = $user->login_ip;//最后登录ip
+                    $data['regist_time']            = $user->regist_time;//注册时间
+                    $data['address']                = $user->address;//地址
+                    $data['from']                   = $user->from;//来源(多个来源)
+                    $data['alipay_fuwu_id']         = $user->alipay_fuwu_id;//服务窗账号id
+                    $data['alipay_status']          = $user->alipay_status;//支付宝用户关注状态
+                    $data['alipay_avatar']          = $user->alipay_avatar;//支付宝服务窗头像
+                    $data['alipay_nickname']        = $user->alipay_nickname;//支付宝用户昵称
+                    $data['alipay_province']        = $user->alipay_province;//支付宝用户注册所填省份
+                    $data['alipay_city']            = $user->alipay_city;//支付宝用户注册所填城市
+                    $data['alipay_gender']          = $user->alipay_gender;//支付宝用户性别 M男性 F女性
+                    $data['alipay_user_type_value'] = $user->alipay_user_type_value;//支付宝用户类型 1公司账号 2个人账号
+                    $data['alipay_is_licence_auth'] = $user->alipay_is_licence_auth;//支付宝用户是否经过营业执照认证 T通过 F没有通过
+                    $data['alipay_is_certified']    = $user->alipay_is_certified;//支付宝用户是否通过实名认证 T通过 F没有实名认证
+                    $data['alipay_certified_grade_a'] = $user->alipay_certified_grade_a;//支付宝用户是否A类认证 T是A类认证 F非A类认证
+                    $data['alipay_is_student_certified'] = $user->alipay_is_student_certified;//支付宝用户是否是学生 T是学生 F不是学生
+                    $data['alipay_is_bank_auth']    = $user->alipay_is_bank_auth;//支付宝用户是否经过银行卡认证 T经过银行卡认证 F未经过银行卡认证
+                    $data['alipay_is_mobile_auth']  = $user->alipay_is_mobile_auth;//支付宝用户是否经过手机认证 T经过手机认证 F未经过手机认证
+                    $data['alipay_user_status']     = $user->alipay_user_status;//支付宝用户状态 Q快速注册用户 T已认证用户 B被冻结账户 W已注册未激活账户
+                    $data['alipay_is_id_auth']      = $user->alipay_is_id_auth;//支付宝用户是否身份证认证 T身份证认证 F非身份证认证
+                    $data['alipay_subscribe_time']  = $user->alipay_subscribe_time;//支付宝用户关注时间
+                    $data['alipay_cancel_subscribe_time'] = $user->alipay_cancel_subscribe_time;//支付宝用户取消关注时间
+                    $data['alipay_subscribe_store_id'] = $user->alipay_subscribe_store_id;//支付宝用户关注入口门店
+                    $data['register_address']       = $user->register_address;//注册地址（省,市）
+                    $data['wechat_status']          = $user->wechat_status;//微信用户关注状态 1 未关注 2已关注 3取消关注
+                    $data['wechat_id']              = $user->wechat_id;//微信用户openid
+                    $data['wechat_nickname']        = $user->wechat_nickname;//微信用户昵称
+                    $data['wechat_sex']             = $user->wechat_sex;//微信用户性别 1男性 2女性
+                    $data['wechat_country']         = $user->wechat_country;//微信用户所在国家
+                    $data['wechat_province']        = $user->wechat_province;//微信用户所在省份
+                    $data['wechat_city']            = $user->wechat_city;//微信用户所在城市
+                    $data['wechat_language']        = $user->wechat_language;//微信用户的语言
+                    $data['wechat_headimgurl']      = $user->wechat_headimgurl;//微信用户头像
+                    $data['wechat_unionid']         = $user->wechat_unionid;//微信用户unionid
+                    $data['wechat_remark']          = $user->wechat_remark;//微信用户备注
+                    $data['wechat_groupid']         = $user->wechat_groupid;//微信用户所在分组id
+                    $data['wechat_subscribe_time']  = $user->wechat_subscribe_time;//微信用户关注时间
+                    $data['wechat_cancel_subscribe_time'] = $user->wechat_cancel_subscribe_time;//微信用户取消关注时间
+                    $data['wechat_subscribe_store_id'] = $user->wechat_subscribe_store_id;//微信用户关注入口门店
+                    $data['switch']                 = $user->switch;//会员等级是否受积分限制1受限制2不受限制
+                    $data['create_time']            = $user->create_time;//创建时间
+                    $data['last_time']              = $user->last_time;//最近更新时间
+                    $data['login_client']           = $user->login_client;//最后登录客户端
+                    $data['province']               = $user->province;//省
+                    $data['city']                   = $user->city;//市
+                    $criteri = new CDbCriteria();
+                    $criteri -> order = 'create_time asc';
+                    $criteri->addcondition('flag=:flag and user_id=:user_id');
+                    $criteri->params[':flag'] = FLAG_NO;
+                    $criteri->params[':user_id'] = $id;
+                    $usergrowuprecord = UserGrowupRecord::model()->findall($criteri);
+                    if($usergrowuprecord) {
+                        foreach($usergrowuprecord as $a => $b){
+                            $data['list'][$a]['user_grade_name'] = $b['user_grade_name'];
+                            $data['list'][$a]['create_time'] = $b['create_time'];
+                        }
+                    } else {
+                        $data['list'] = array();
+                    }
+                    $usertag = UserTag::model()->findall('flag=:flag and user_id=:user_id',array(
+                        ':flag' => FLAG_NO,
+                        ':user_id' => $id
+                    ));
+                    //标签
+                    $tag_value = array();
+                    if($usertag){
+                        foreach($usertag as $key =>$val){
+                            $tag_value[$key] = $val['tag_value'];
+                        }
+                    }
+                    $data['tag_value'] = $tag_value;
+                    $group = Group::model()->findall('flag=:flag and user_id=:user_id',array(
+                        ':flag' => FLAG_NO,
+                        ':user_id' => $id,
+                    ));
+                    //分组
+                    $groupname = array();
+                    if($group){
+                        foreach($group as $k => $v) {
+                            $userGroup = UserGroup::model()->find('flag=:flag and merchant_id=:merchant_id and id=:id',array(
+                                ':flag' => FLAG_NO,
+                                ':merchant_id' => $merchantId,
+                                ':id' => $v -> group_id
+                            ));
+                            $groupname[] = $userGroup['name'];
+                        }
+                        if($userGroup){
+                            $data['group'] = $groupname;
+                        } else {
+                            $data['group'] = '';
+                        }
+                    } else {
+                        $data['group'] = '';
+                    }
+
+                    $data['order'] = array();
+                    $data['order_count'] = '0';
+                    $data['sum_order'] = '0';
+                    $pay_status = ORDER_STATUS_PAID;
+                    $store = Store::model()->findall('flag=:flag and merchant_id=:merchant_id',array(
+                        ':flag' => FLAG_NO,
+                        ':merchant_id' => $merchantId,
+                    ));
+                    $store_id = array();
+                    if($store){
+                        foreach($store as $v){
+                            $store_id[] = $v['id'];
+                        }
+                    }
+                    //消费记录
+                    $criteria = new CDbCriteria();
+                    $criteria -> order = 'pay_time desc';
+                    $criteria->addCondition('flag=:flag and pay_status=:pay_status');
+                    $criteria->params[':flag'] = FLAG_NO;
+                    $criteria->addInCondition('store_id', $store_id);
+                    $criteria->params[':pay_status'] = $pay_status;
+                    /*
+                    if ($id){
+                        $criteria->addCondition('user_id=:user_id');
+                        $criteria->params[':user_id'] = $id;
+                    }
+                    */
+                    $wechat_user_id = $data['wechat_id'];
+                    $alipay_user_id = $data['alipay_fuwu_id'];
+                    if ($wechat_user_id){
+                        $criteria->addCondition('wechat_user_id=:wechat_user_id');
+                        $criteria->params[':wechat_user_id'] = $wechat_user_id;
+                    }
+                    if ($alipay_user_id){
+                        $criteria->addCondition('alipay_user_id=:alipay_user_id');
+                        $criteria->params[':alipay_user_id'] = $alipay_user_id;
+                    }
+
+                    //分页
+                    $pages = new CPagination(Order::model()->count($criteria));
+                    $pages->pageSize = Yii::app() -> params['perPage'];
+                    $pages->applyLimit($criteria);
+                    $this->page = $pages;
+                    $order = Order::model()->findall($criteria);
+                    if($order){
+                        $order_paymoney = Yii::app()->db->createCommand("
+                                    select sum(order_paymoney)
+                                    from wq_order where merchant_id=$merchantId and pay_status=$pay_status and flag=1 and (user_id=$id or wechat_user_id='$wechat_user_id' or alipay_user_id='$alipay_user_id')                            
+                                ")->queryScalar();
+                        //累计消费金额
+                        $data['sum_order'] = $order_paymoney;
+                        $data['order_count'] = Order::model()->count($criteria);
+                        foreach($order as $k => $v){
+                            $data['order'][$k]['pay_time'] = $v['pay_time'];
+                            $data['order'][$k]['store_name'] = $v->store->name;
+                            $data['order'][$k]['pay_channel'] = $v['pay_channel'];
+                            $data['order'][$k]['money'] = $v['order_paymoney'];
+                        }
+                    }
+                }
+            }
+            $result['status'] = ERROR_NONE;
+            $result['data']   = $data;
+        } else {
+            $result['status'] = ERROR_NO_DATA;
+            $result['errMsg'] = '无此数据';
+        }
+        return json_encode($result);
+    }
+    /**
+     * 为用户设置标签
+     * @param type $user_id
+     * @param type $tag_value
+     * @return type
+     * @throws Exception
+     */
+    public function UserTag($user_id, $tag_value)
+    {
+        $result = array();
+        try {
+            if (empty($user_id)) {
+                $result['status'] = ERROR_PARAMETER_FORMAT;
+                throw new Exception('参数user_id不能为空');
+            }
+            if (empty($tag_value)) {
+                $result['status'] = ERROR_PARAMETER_FORMAT;
+                throw new Exception('参数tag_value不能为空');
+            }
+            $usertags = UserTag::model()->findall('flag=:flag and user_id=:user_id',array(':flag'=>FLAG_NO,':user_id'=>$user_id));
+            if(!empty($usertags)){
+                foreach($usertags as $val){
+                    $user_tag = UserTag::model()->find('flag=:flag and id=:id',array(':flag'=>FLAG_NO,':id'=>$val['id']));
+                    $user_tag -> delete();
+                }
+            }
+            foreach($tag_value as $v){
+                $usertag = new UserTag();
+                $usertag -> user_id = $user_id;
+                $usertag -> tag_value = $v;
+                $usertag -> create_time = new CDbExpression('now()');
+                if(!$usertag -> save()){
+                    $result['status'] = ERROR_NO_DATA;
+                    $result['errMsg'] = '保存失败';
+                }
+            }
+            $result['status'] = ERROR_NONE;
+        } catch (Exception $e) {
+            $result['status'] = isset($result['status']) ? $result['status'] : ERROR_EXCEPTION;
+            $result['errMsg'] = $e->getMessage(); //错误信息
         }
         return json_encode($result);
     }

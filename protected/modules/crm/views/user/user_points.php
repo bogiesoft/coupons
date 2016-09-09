@@ -88,14 +88,7 @@ $(function(){
                     </tr>
                 </thead>
                 <tbody>
-                <!--
-                    <tr>
-                        <td>2016.5.11 12:00:00</td>
-                        <td>1</td>
-                        <td>消费</td>
-                        <td>10000</td>
-                    </tr>
-                -->
+
                 <?php 
                     if(!empty($pointDetailes))
                     {

@@ -751,17 +751,17 @@ class UserManageController extends CrmController
         $detail = '';
         $id = isset($_GET['id']) ? $_GET['id'] : '';
         $merchantId = Yii::app()->session['merchant_id'];
-        $ret = new UserC();
-        $rat = $ret->UserDetail($merchantId,$id);
+
+        $rat = $this->UserDetail($merchantId,$id);
         $detail = json_decode($rat,true);
         if($detail['status'] == ERROR_NONE)
         {
             $detail = $detail['data'];
         }
         $assign['detail'] = $detail;
-        $assign['pages']  = $ret -> page;
-        $assign['page1'] = $ret -> page1;
-        $assign['page2']  = $ret -> page2;
+        $assign['pages']  = $this -> page;
+        $assign['page1'] = $this -> page1;
+        $assign['page2']  = $this -> page2;
         $this -> render('userDetail',$assign);
     }
 
@@ -799,7 +799,7 @@ class UserManageController extends CrmController
      */
     public function actionAddTag()
     {
-        $userC = new UserC();
+
         $userStr    = $_POST['users'];
         $tagStr    = $_POST['tags'];
         $users      = explode(',', $userStr);
@@ -811,10 +811,10 @@ class UserManageController extends CrmController
         }
         foreach ($users as $v)
         {
-            $ret = $userC->UserTag($v, $tags);
+            $ret = $this->UserTag($v, $tags);
             $result = json_decode($ret,true);
             if($result['status'] == ERROR_NONE){
-//                 $this->redirect($_GET['goUrl']);
+
                 echo "<script>self.history.go(-1);</script>";
             }
         }

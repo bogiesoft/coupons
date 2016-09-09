@@ -65,7 +65,7 @@
                                         <span>累计消费金额</span>
                                         <span class="number">
                                         <?php echo $total_store_xf_money ? $total_store_xf_money : 0; ?>
-                                        <?php /*echo $user->total_trade ? $user->total_trade : 0; */?>
+
                                         </span>
                                     </li>
                                     <li>
@@ -80,7 +80,7 @@
                                         <span>累计积分</span>
                                         <span class="number">
                                             <?php echo $user_total_get_score ? $user_total_get_score : 0; ?>
-                                            <?php /*echo $user->total_points ? $user->total_points : 0; */?>
+
                                         </span>
                                     </li>
                                     <li>
@@ -157,68 +157,14 @@
                                         <span>最后登录客户端：<?php echo $user->login_client ? $user_login_clients[$user->login_client] : '无' ?></span>
                                     </li>
                                 </ul>
-                                <!--
-                                <div class="more_tag_wrap">
-                                    <div class="more_tag">
-                                        <span class="more_tag_title">更多标签</span>
-                                        <ul class="tag_group">
-                                        <?php
-                                if (!empty($user->tag)) {
-                                    foreach ($user->tag as $tag) {
-                                        ?>
-                                            <li><?php echo $tag->tag_name ? $tag->tag_name : '标签' ?>：<?php echo $tag->tag_value ?></li>
-                                        <?php
-                                    }
-                                }
-                                ?>
-                                            <li>星座：白羊座</li>
-                                            <li>消费能力：高富帅</li>
-                                            <li>兴趣：运动</li>
-                                            <li>星座：白羊座</li>
-                                            <li>消费能力：高富帅</li>
-                                            <li>兴趣：运动</li>
-                                            <li>星座：白羊座</li>
-                                            <li>消费能力：高富帅</li>
-                                            <li>兴趣：运动</li>
-                                            <li>星座：白羊座</li>
-                                            <li>消费能力：高富帅</li>
-                                            <li>兴趣：运动</li>
-                                            <li>星座：白羊座</li>
-                                            <li>消费能力：高富帅</li>
-                                            <li>兴趣：运动</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                -->
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="user_detail_r">
                     <h3>客户成长</h3>
-                    <!-- 代码来自 http://f2e.im/static/pages/timeline/index.html -->
-                    <div class="history">
-                        <!--
-                        <div class="history-date">
-                            <ul>
-                                <h2 class="first"><a href="javascript:;">2015年</a></h2>
-                                <li class="green">
-                                    <h3>05.03<span>2015</span></h3>
-                                    <dl>
-                                        <dt>关注微信公众号
-                                        </dt>
-                                    </dl>
-                                </li>
-                                <li class="green">
-                                    <h3>05.06<span>2015</span></h3>
-                                    <dl>
-                                        <dt>注册成为会员
-                                        </dt>
-                                    </dl>
-                                </li>
-                            </ul>
-                        </div>
-                        -->
+
                         <?php
                         if (!empty($time_line))
                             foreach ($time_line as $k => $v) {
@@ -240,22 +186,7 @@
                                             <?php
                                         }
                                         ?>
-                                        <!--
-                                        <li class="green">
-                                            <h3>05.03<span>2016</span></h3>
-                                            <dl>
-                                                <dt>关注微信公众号
-                                                </dt>
-                                            </dl>
-                                        </li>
-                                        <li class="green">
-                                            <h3>05.06<span>2016</span></h3>
-                                            <dl>
-                                                <dt>注册成为会员
-                                                </dt>
-                                            </dl>
-                                        </li>
-                                        -->
+
                                     </ul>
                                 </div>
                                 <?php

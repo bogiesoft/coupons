@@ -130,15 +130,7 @@ $(function(){
                     </tr>
                 </thead>
                 <tbody>
-                <!-- 
-                    <tr>
-                        <td>2016.5.11 12:00:00</td>
-                        <td>711吉祥店</td>
-                        <td>100</td>
-                        <td>退款消费</td>
-                        <td>支付宝</td>
-                    </tr>
-                -->
+
                 <?php 
                     if(!empty($orders))
                     {
