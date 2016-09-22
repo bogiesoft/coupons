@@ -11,6 +11,7 @@ class UserController extends CrmController
      */
     public function actionUserLists()
     {
+        
         $start_time = microtime(true);
         $merchant_id = Yii::app()->session['merchant_id'];
         $storeC = new StoreC();
@@ -49,12 +50,31 @@ class UserController extends CrmController
             $whereSql .= ' AND (nickname LIKE "%' . $keyword . '%" OR account LIKE "%' . $keyword . '%" OR name LIKE "%' . $keyword . '%" OR wechat_nickname LIKE "%' . $keyword . '%" OR alipay_nickname LIKE "%' . $keyword . '%") ';
         }
 
-        //会员等级查询
+        //查询会员等级
+        $grade_arr = Yii::app()->db->createCommand()->select('a.id, a.merchant_id, a.name AS grade_name, a.points_rule')
+        ->from('wq_user_grade a')
+        ->where('a.merchant_id = :merchant_id and a.flag=:flag', array(':merchant_id' => $merchant_id,':flag'=>FLAG_NO))
+        ->order('a.points_rule asc')
+        ->queryAll();
+//判断会员等级
         $grades = isset($_GET['grade']) ? $_GET['grade'] : '';
-        if (!empty($grades)) {
-            $whereSql .= ' AND t.membershipgrade_id IN (' . $this -> changeArray($grades) . ') AND t.type = ' . USER_TYPE_WANQUAN_MEMBER;
+        if ($grades && $grade_arr) {
+            $whereSql.= ' AND (';
+            foreach ($grade_arr as $k=>$v){
+                if (in_array($v['id'], $grades)){
+                    $points_rule_k = empty($v['points_rule']) ? 0:$v['points_rule'];
+                    if (isset($grade_arr[$k+1])){
+                        $points_rule_k2 = empty($grade_arr[$k+1]['points_rule']) ? 0:$grade_arr[$k+1]['points_rule'];
+                        $whereSql.= ' (t.total_points >= '.$points_rule_k.' AND t.total_points < '.$points_rule_k2.') or';
+                    }else{
+                        $whereSql.= ' (t.total_points >= '.$points_rule_k.') or';
+                    }
+                }
+            }
+            $whereSql = substr($whereSql, 0, -2);
+            $whereSql.= ') AND t.type = ' . USER_TYPE_WANQUAN_MEMBER;
         }
-
+        
         //支付宝状态查询条件
         $alipay_status = isset($_GET['alipay_status']) ? $_GET['alipay_status'] : '';
         if (!empty($alipay_status)) {
@@ -248,7 +268,7 @@ class UserController extends CrmController
 
         //数据查询
         $cmd = Yii::app()->db->createCommand();
-        $cmd->select = 't.id, t.avatar, t.sex, t.nickname, t.name, t.birthday, t.from, 
+        $cmd->select = 't.id, t.avatar, t.sex, t.nickname, t.name, t.birthday, t.from, t.total_points,
         t.city, t.type, t.points, t.account, t.membershipgrade_id, t.create_time, t.regist_time,
         t.total_trade, t.last_trade_store, t.last_trade_time, IFNULL(b.wechat_status, 1) AS wechat_status, b.wechat_subscribe_time, b.wechat_cancel_subscribe_time, IFNULL(c.alipay_status, 1) AS alipay_status, c.alipay_subscribe_time, c.alipay_cancel_subscribe_time';
         $cmd->from = '(SELECT * FROM wq_user a WHERE a.merchant_id = ' . $merchant_id . ' AND a.flag = ' . FLAG_NO . ' AND a.bind_status = ' . USER_BIND_STATUS_UNBIND  . ') AS t ';
@@ -304,15 +324,18 @@ class UserController extends CrmController
         $this->page = $pages;
         $cmd->offset = (isset($_GET['page']) ? ($_GET['page'] - 1) : 0) * $pages->pageSize;
         $cmd->limit = $pages->pageSize;
-
         $cmd->group = 't.id';
         $cmd->order = $subSql;
         $cmd->having = $wechatAlipaySql;
         $cmd->where = $whereSql;
         $users = $cmd->queryAll();
-
-
         $count = count($users);
+        //获取用户等级名称
+        foreach ($users as $k=>$v){
+            if ($v['type'] == USER_TYPE_WANQUAN_MEMBER){
+                $users[$k]['grade_name'] = $this->get_user_grade_name($grade_arr,$v['total_points']);
+            }
+        }
         //查询门店
         $store_arr = Yii::app()->db->createCommand()
             ->select('a.id, a.name, a.branch_name')
@@ -322,32 +345,30 @@ class UserController extends CrmController
         foreach ($store_arr as $v) {
             $store_lists[$v['id']]['name'] = empty($v['branch_name']) ? $v['name'] : $v['name']."-".$v['branch_name'];
         }
-
-        //查询会员等级
-        $grade_arr = Yii::app()->db->createCommand()->select('a.id, a.merchant_id, a.name AS grade_name')
-        ->from('wq_user_grade a')
-        ->where('a.merchant_id = :merchant_id', array(':merchant_id' => $merchant_id))
-       ->queryAll();
-        foreach ($grade_arr as $v) {
-            $grade_lists[$v['id']]['grade_name'] = $v['grade_name'];
-        }
-
         $user_groups = UserGroup::model()->findAll('merchant_id=' . $merchant_id . ' AND flag=' . FLAG_NO);
-        $user_grades = UserGrade::model()->findAll('merchant_id=' . $merchant_id . ' AND flag=' . FLAG_NO);
-
         $this->render('userLists', array(
             'users' => $users,
             'store_lists' => $store_lists,
-            'grade_lists' => $grade_lists,
             'pages' => $pages,
             'user_groups' => $user_groups,
-            'user_grades' => $user_grades,
+            'user_grades' => $grade_arr,
             'province' => $province,
             'count' => $count,
             'choseCities' => $choseCities,
             'store_ids' => $store_ids,
             'store_names' => $store_names,
         ));
+    }
+    private function get_user_grade_name($grade_arr,$total_points){
+        $grade_name = '';
+        if ($grade_arr){
+            foreach ($grade_arr as $v){
+                if ($total_points >= $v['points_rule']){
+                    $grade_name = $v['grade_name'];
+                }
+            }
+        }
+        return $grade_name;
     }
 
     /**

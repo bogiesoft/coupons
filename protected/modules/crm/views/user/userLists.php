@@ -58,9 +58,6 @@
 					<input type="checkbox" id="grade_3" name="grade[]"> <label for="grade_3">钻石会员</label>
 					<input type="checkbox" id="grade_4" name="grade[]"> <label for="grade_4">至尊会员</label>
 					-->
-					<?php 
-// 					   print_r($user_grades);
-					?>
 					<div class='dd'>
 					<?php
 					   foreach ($user_grades as $k=>$v)
@@ -68,7 +65,7 @@
 					       echo '<label for="grade_'.$k.'"><input type="checkbox" id="grade_'.$k.'" name="grade['.$k.']" value="'.$v['id'].'"';
 					       if(!empty($_GET['grade'][$k]))
 					           echo 'checked';
-					       echo '/>'.$v['name'].'</label>';
+					       echo '/>'.$v['grade_name'].'</label>';
 					   }
 					
 					?>
@@ -421,7 +418,7 @@
 					<div class="td_item">
 						<?php if($v['type'] == USER_TYPE_WANQUAN_MEMBER) {?>
                         <span>
-                        <?php echo $grade_lists[$v['membershipgrade_id']]['grade_name']?>
+                        <?php echo $v['grade_name'];?>
                         <em class="user_info_grade">（积分
                         <?php echo $v['points']?$v['points']:0?>
                                                                         ）</em></span>
