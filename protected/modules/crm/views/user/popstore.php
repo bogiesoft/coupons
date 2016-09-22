@@ -125,7 +125,41 @@ $('#city').change(function(){
     });
 		return false;
 	});
+/*
+$("#check_all_btn").click(function() {
+    $("input.store_id").prop("checked", !!$(this).is(":checked"));
+    $("#check_num").html($("input.store_id").length);
+});
 
+$("#btn_yes").click(function(){
+	var store_name = $("input.store_name");
+	var store_names = new Array();
+	var store_ids = new Array();
+	var i = 0;
+	$("input.store_id").each(function(){
+		if($(this).is(":checked")) {
+			store_ids[i] = $(this).val();
+			store_names[i] = store_name[i].value;
+			i++;
+		}
+	});
+
+	var sarea = $("#store_area", window.parent.document);
+	$.each(store_ids, function(i,val){
+		var str = sarea.html();
+	      var appendHtml = '<button type="button" class="tag_btn_default tag_btn_primary btn_area"'
+		      +' onclick="this.parentNode.removeChild(this)"><em>'+store_names[i]+'</em> '
+		      +'<input type="hidden" name="store_id['+i+']" value="'+val+'">'
+		      +'<input type="hidden" name="store_name['+i+']" value="'+store_names[i]+'"></button>';
+		  //判重
+		  if(str.indexOf('value="'+val+'">') == -1)
+		  {
+			  sarea.append(appendHtml);
+		  }
+	  });
+});
+
+*/
 
 $(function(){
 
@@ -182,7 +216,7 @@ $(function(){
         		var arr = idname.split(',');
         		var store_id = arr[0];
         		var store_name = arr[1];
-
+//         		alert('id:'+store_id+',name:'+store_name);
         		idcontainer.append(store_id+',');
         		namecontainer.append(store_name+',');
         		$('#check_num').html(allStore.length);

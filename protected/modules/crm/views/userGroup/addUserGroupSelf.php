@@ -19,7 +19,7 @@
                     <div class="new_group_item">
                         <h3 class="first_title">分组名称</h3>
                         <div class="new_group_item_c">
-                            <?php echo CHtml::textField('UserGroup[name]',isset($_POST['UserGroup']['name'])?$_POST['UserGroup']['name']:'',array('class'=>'text_group','placeholder'=>'请输入分组名称，最多9个汉字')); ?>
+                            <?php echo CHtml::textField('UserGroup[name]',isset($_POST['UserGroup']['name'])?$_POST['UserGroup']['name']:'',array('class'=>'text_group','placeholder'=>'请输入分组名称，最多9个汉字','maxlength'=>'9')); ?>
                             <?php if(Yii::app()->user->hasFlash('name_error')){ ?>
                             <span class="error1"><?php echo Yii::app()->user->getFlash('name_error'); ?></span>
                             <?php }?>

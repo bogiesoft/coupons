@@ -6,6 +6,7 @@
         </div>
         <div class="contant clearfix membership">
             <div class="coupon_l level_l">
+                <input type="hidden" name="UserGrade[user_grade_code]" value="<?php echo $user_grade_code;?>">
                 <div class="title">优惠券</div>
                 <div class="hd">
                     <img src="<?php echo GJ_STATIC_IMAGES.'card/style1.png'?>" id="cover_img">
@@ -214,7 +215,10 @@
     <!--会员卡弹出框end-->
     <script>
         $(document).ready(function() {
+        	   window.parent.callParAutoResize("main",$("body").height());
+               
             $("input[name='cover']").val('style1.png');
+             $("#js_level #points1").trigger("click");
         });
         function showpop(){
             $('#pop').show();
@@ -236,30 +240,31 @@
             s = 0,
             _index=0,
             title="";
-            current_type = <?php echo $type ?> - 1;
+//            current_type = <?php #echo $type ?> - 1;
         $js_radio.click(function() {
             _index = $js_radio.index($js_radio.filter(":checked")), //获取选中状态的索引值
             title = $(this).attr("title");
             showLayer(_index);
-            if(_index != current_type){
-            	var index = layer.open({
-            		offset: '300px'
-            		  ,content: '确定修改会员等级条件吗？<br/>修改会员等级条件会使原有会员等级条件失效，需要重新设置并发布'
-            		  ,btn: ['确定', '取消']
-            		  ,yes: function(){
-            		    //按钮【按钮一】的回调
-              		    clear_type('<?php echo($this->createUrl('ClearType'));?>');
-              		  	layer.close(index);
-            		  },btn2: function(){
-            		    //按钮【按钮二】的回调
-            			  showLayer(current_type);
-            		  }
-            		  ,cancel: function(){ 
-            		    //右上角关闭回调
-            			  showLayer(current_type);
-            		  }
-            	});
-            }
+//            if(_index != current_type){
+//            	var index = layer.open({
+//            		offset: '300px'
+//            		  ,content: '确定修改会员等级条件吗？<br/>修改会员等级条件会使原有会员等级条件失效，需要重新设置并发布'
+//            		  ,btn: ['确定', '取消']
+//            		  ,yes: function(){
+//            		    //按钮【按钮一】的回调
+//              		    clear_type('<?php #echo($this->createUrl('ClearType'));?>');
+//              		  	layer.close(index);
+//            		  },btn2: function(){
+//            		    //按钮【按钮二】的回调
+//            			  showLayer(current_type);
+//            		  }
+//            		  ,cancel: function(){ 
+//            		    //右上角关闭回调
+//            			  showLayer(current_type);
+//            		  }
+//            	});
+//            }
+           
         });
         
         function showLayer(_index){
@@ -276,7 +281,6 @@
                 s = s + $js_label.eq(i).width();
             }
             t_width = s + _index * 20; //获取弹出提示的三角需要偏离的位置
-            console.log(t_width);
             $js_layer_before.css({
                 "left": t_width
             });

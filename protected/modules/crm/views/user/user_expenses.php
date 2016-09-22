@@ -125,12 +125,20 @@ $(function(){
                         <td>消费门店</td>
                         <td>订单金额</td>
                         <td>实收金额</td>
-                        <td>类型</td>
+                        <!--<td>类型</td>-->
                         <td>支付方式</td>
                     </tr>
                 </thead>
                 <tbody>
-
+                <!-- 
+                    <tr>
+                        <td>2016.5.11 12:00:00</td>
+                        <td>711吉祥店</td>
+                        <td>100</td>
+                        <td>退款消费</td>
+                        <td>支付宝</td>
+                    </tr>
+                -->
                 <?php 
                     if(!empty($orders))
                     {
@@ -142,7 +150,7 @@ $(function(){
                         <td><?php echo empty($order->store->branch_name) ? $order->store->name : $order->store->name."-".$order->store->branch_name?></td>
                         <td><?php echo $order->order_paymoney?></td>
                         <td><?php echo $order->order_paymoney - $order->coupons_money - $order->discount_money - $order->merchant_discount_money;?></td>
-                        <td><?php if(in_array($order->order_status, $tk_types)) echo '退款'; else echo '消费'?></td>
+                        <!--<td><?php /*if(in_array($order->order_status, $tk_types)) echo '退款'; else echo '消费'*/?></td>-->
                         <td><?php echo $pay_channels[$order->pay_channel]?></td>
                     </tr>
                 <?php

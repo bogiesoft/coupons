@@ -162,7 +162,51 @@
                                 }
                             }
                         ?>
-
+                        <!--
+                        <tbody>
+                            <tr class="list-title">
+                                <td colspan="6">
+                                    <span>订单编号：1234567898722151512</span>
+                                    <span>支付宝支付</span>
+                                    <span class=" clearfix">支付宝交易号：1236547898745632</span>
+                                </td>
+                                <td align="right">
+                                    <a href="">订单详情</a>
+                                </td>
+                            </tr>
+                            <tr class="orderCon">
+                                <td valign="top" width="388">
+                                    <a href="#">
+                                        <div class="list-img"><img src="http://ooo.0o0.ooo/2016/01/23/56a32340b779f.png" /></div>
+                                        <div class="list-name">台湾正品 张君雅甜甜圈 巧克力甜甜圈 张君雅小妹妹系列</div>
+                                        <div class="list-info">s</div>
+                                    </a>
+                                </td>
+                                <td class="border">100.00<span>*3</span></td>
+                                <td class="border" width="90" rowspan="2">用户提交维权</td>
+                                <td class="border" rowspan="2">卖家名称<span>18963259856</span></td>
+                                <td class="border" rowspan="2">2015.08.09<span>19:25:20</span></td>
+                                <td class="border" rowspan="2">等待买家收货<span></span></td>
+                                <td rowspan="2">600<span>(含运费6.00)</span></td>
+                                <tr class="orderCon">
+                                    <td valign="top" width="388">
+                                        <a href="#">
+                                            <div class="list-img"><img src="http://ooo.0o0.ooo/2016/01/23/56a32340b779f.png" /></div>
+                                            <div class="list-name">台湾正品 张君雅甜甜圈 巧克力甜甜圈 张君雅小妹妹系列</div>
+                                            <div class="list-info">s</div>
+                                        </a>
+                                    </td>
+                                    <td class="border">100.00<span>*3</span></td>
+                                </tr>
+                            </tr>
+                            <tr>
+                                <td class="remarks" colspan="7">卖家备注：收款机富力水街坊</td>
+                            </tr>
+                            <tr>
+                                <td class="bottom" colspan="7"></td>
+                            </tr>
+                        </tbody>
+                        -->
                     </table>
                 </div>
             </div>

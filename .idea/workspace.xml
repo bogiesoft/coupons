@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9c8e9613-9f2c-4d6f-8207-069fbd956948" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/components/CrmController.php" afterPath="$PROJECT_DIR$/protected/modules/crm/components/CrmController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php" afterPath="$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/controllers/UserGradeController.php" afterPath="$PROJECT_DIR$/protected/modules/crm/controllers/UserGradeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php" afterPath="$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/views/user/userInfo.php" afterPath="$PROJECT_DIR$/protected/modules/crm/views/user/userInfo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/views/userGroup/addFilterUserGroup.php" afterPath="$PROJECT_DIR$/protected/modules/crm/views/userGroup/addFilterUserGroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/crm/views/userGroup/editFilterUserGroup.php" afterPath="$PROJECT_DIR$/protected/modules/crm/views/userGroup/editFilterUserGroup.php" />
     </list>
     <ignored path="coupons.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,84 +30,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11666">
+              <caret line="616" column="63" selection-start-line="616" selection-start-column="20" selection-end-line="616" selection-end-column="63" />
+              <folding>
+                <marker date="1474304686069" expanded="true" signature="36798:36833" ph="delete from " />
+                <marker date="1474304686069" expanded="true" signature="38430:38468" ph="delete from " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Desktop/gj_branch_20160808_for_test/UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="878" column="52" selection-start-line="878" selection-start-column="52" selection-end-line="878" selection-end-column="52" />
+              <folding>
+                <marker date="1474380225832" expanded="true" signature="36486:36521" ph="delete from " />
+                <marker date="1474380225832" expanded="true" signature="38118:38156" ph="delete from " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2629">
-              <caret line="753" column="0" selection-start-line="753" selection-start-column="0" selection-end-line="753" selection-end-column="0" />
+            <state relative-caret-position="5586">
+              <caret line="296" column="32" selection-start-line="296" selection-start-column="8" selection-end-line="296" selection-end-column="32" />
               <folding>
-                <marker date="1473323754892" expanded="true" signature="30944:30979" ph="delete from " />
-                <marker date="1473323754892" expanded="true" signature="31794:31832" ph="delete from " />
+                <marker date="1474250437088" expanded="false" signature="9:17" ph=" 用户管理控制器 ..." />
+                <marker date="1474250437088" expanded="true" signature="37252:37287" ph="delete from " />
+                <marker date="1474250437088" expanded="true" signature="38884:38922" ph="delete from " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IntegralController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/IntegralController.php">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Desktop/gj_Release/protected/modules/crm/controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2850">
-              <caret line="219" column="32" selection-start-line="219" selection-start-column="32" selection-end-line="219" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mainClass.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/class/mainClass.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="17" selection-start-line="15" selection-start-column="4" selection-end-line="17" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserC.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/class/crm/UserC.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67184">
-              <caret line="3536" column="47" selection-start-line="3500" selection-start-column="7" selection-end-line="3542" selection-end-column="9" />
+            <state relative-caret-position="1729">
+              <caret line="93" column="63" selection-start-line="87" selection-start-column="8" selection-end-line="101" selection-end-column="0" />
               <folding>
-                <marker date="1473238778572" expanded="true" signature="132245:132479" ph="select sum(o... wq_order" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_stored.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/user/user_stored.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1995">
-              <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
-              <folding>
-                <marker date="1473315905799" expanded="true" signature="5292:5298" ph=" " />
-                <marker date="1473315905799" expanded="true" signature="5358:5364" ph=" " />
-                <marker date="1473315905799" expanded="true" signature="5365:5371" ph=" " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserGroupController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7277">
-              <caret line="383" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="383" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userDetail.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/user/userDetail.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2660">
-              <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-              <folding>
-                <marker date="1473316581817" expanded="true" signature="8103:8109" ph=" " />
-                <marker date="1473316581817" expanded="true" signature="8169:8175" ph=" " />
-                <marker date="1473316581817" expanded="true" signature="8176:8182" ph=" " />
+                <marker date="1474289665702" expanded="true" signature="34145:34180" ph="delete from " />
+                <marker date="1474289665702" expanded="true" signature="35777:35815" ph="delete from " />
               </folding>
             </state>
           </provider>
@@ -109,20 +86,61 @@
       <file leaf-file-name="userInfo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/user/userInfo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2185">
-              <caret line="115" column="49" selection-start-line="115" selection-start-column="49" selection-end-line="115" selection-end-column="49" />
+            <state relative-caret-position="3230">
+              <caret line="170" column="45" selection-start-line="170" selection-start-column="45" selection-end-line="170" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CrmController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/crm/components/CrmController.php">
+      <file leaf-file-name="UserC.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/class/crm/UserC.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21622">
-              <caret line="1138" column="5" selection-start-line="1138" selection-start-column="5" selection-end-line="1138" selection-end-column="5" />
+            <state relative-caret-position="60458">
+              <caret line="3182" column="24" selection-start-line="3182" selection-start-column="24" selection-end-line="3182" selection-end-column="24" />
               <folding>
-                <marker date="1473323754692" expanded="true" signature="44042:44276" ph="select sum(o... wq_order" />
+                <marker date="1473238778572" expanded="true" signature="132245:132479" ph="select sum(o... wq_order" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FinanceController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/modules/finance/controllers/FinanceController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1007">
+              <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tradeList.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/modules/finance/views/finance/tradeList.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1472177435377" expanded="true" signature="20985:20991" ph=" " />
+                <marker date="1472177435377" expanded="true" signature="21053:21059" ph=" " />
+                <marker date="1472177435377" expanded="true" signature="21065:21071" ph=" " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TradeC.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/class/oto/TradeC.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2660">
+              <caret line="140" column="12" selection-start-line="140" selection-start-column="12" selection-end-line="154" selection-end-column="13" />
+              <folding>
+                <marker date="1472177432093" expanded="true" signature="6680:6741" ph="SELECT * FRO... ${$sql1}" />
+                <marker date="1472177432093" expanded="true" signature="30723:30784" ph="SELECT * FRO... ${$sql1}" />
+                <marker date="1472177432093" expanded="true" signature="47585:47646" ph="SELECT * FRO... ${$sql1}" />
+                <marker date="1472177432093" expanded="true" signature="66611:66672" ph="SELECT * FRO... ${$sql1}" />
+                <marker date="1472177432093" expanded="true" signature="83717:83778" ph="SELECT * FRO... ${$sql1}" />
+                <marker date="1472177432093" expanded="true" signature="101969:102030" ph="SELECT * FRO... ${$sql1}" />
               </folding>
             </state>
           </provider>
@@ -131,8 +149,8 @@
       <file leaf-file-name="userLists.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/user/userLists.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2584">
-              <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+            <state relative-caret-position="6232">
+              <caret line="328" column="286" selection-start-line="328" selection-start-column="286" selection-end-line="328" selection-end-column="286" />
               <folding>
                 <marker date="1473324008303" expanded="true" signature="18125:18131" ph=" " />
                 <marker date="1473324008303" expanded="true" signature="18191:18197" ph=" " />
@@ -168,10 +186,20 @@
         <option value="$PROJECT_DIR$/protected/modules/crm/views/user/user_stored.php" />
         <option value="$PROJECT_DIR$/protected/modules/crm/views/user/userDetail.php" />
         <option value="$PROJECT_DIR$/protected/modules/crm/views/user/user_points.php" />
-        <option value="$PROJECT_DIR$/protected/modules/crm/components/CrmController.php" />
-        <option value="$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/protected/modules/crm/views/user/userInfo.php" />
         <option value="$PROJECT_DIR$/protected/modules/crm/views/user/userLists.php" />
+        <option value="$USER_HOME$/Videos/UserController.php" />
+        <option value="$USER_HOME$/Desktop/UserController(1).php" />
+        <option value="$USER_HOME$/Desktop/UserController(1)(3).php" />
+        <option value="$USER_HOME$/Desktop/UserController(1)(2).php" />
+        <option value="$PROJECT_DIR$/protected/modules/crm/components/CrmController.php" />
+        <option value="C:/UserController.php" />
+        <option value="$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/../sadsa.php" />
+        <option value="$PROJECT_DIR$/../UserController.php" />
+        <option value="$USER_HOME$/Desktop/fx_branch_20160812_for_test/UserController.php" />
+        <option value="$USER_HOME$/Desktop/gj_Release/protected/modules/crm/controllers/UserController.php" />
+        <option value="$USER_HOME$/Desktop/gj_branch_20160808_for_test/UserController.php" />
       </list>
     </option>
   </component>
@@ -183,9 +211,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1378" />
-    <option name="height" value="735" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -212,7 +241,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -260,6 +288,206 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mCenter" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mCenter" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="marketing" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="marketing" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -497,7 +725,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="class" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -515,16 +743,13 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="class" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="crm" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -607,17 +832,31 @@
       <workItem from="1473300173240" duration="4170000" />
       <workItem from="1473305774508" duration="10143000" />
       <workItem from="1473400006100" duration="2266000" />
+      <workItem from="1473645070789" duration="5790000" />
+      <workItem from="1473673724223" duration="644000" />
+      <workItem from="1473755254082" duration="1849000" />
+      <workItem from="1473823113854" duration="6000" />
+      <workItem from="1473841428087" duration="1764000" />
+      <workItem from="1474081371833" duration="16938000" />
+      <workItem from="1474140099163" duration="5057000" />
+      <workItem from="1474184054789" duration="5703000" />
+      <workItem from="1474247912039" duration="13475000" />
+      <workItem from="1474281718425" duration="14339000" />
+      <workItem from="1474301611244" duration="5601000" />
+      <workItem from="1474312720682" duration="7627000" />
+      <workItem from="1474363759689" duration="15607000" />
+      <workItem from="1474507339802" duration="923000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77871000" />
+    <option name="totallyTimeSpent" value="173194000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24669604" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17604166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -631,7 +870,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21835443" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -648,241 +887,18 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php</url>
+          <line>285</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/console.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/params.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2337">
-          <caret line="123" column="80" selection-start-line="123" selection-start-column="80" selection-end-line="123" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/UserCoupons.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/UserGrade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/UserGradeDraft.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/UserGroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/UserGrowupRecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/UserPointsdetail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/UserTag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/crm/LabelC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/integralExchange/integralExchangeDialog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/wq/FilterUserClass.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16321">
-          <caret line="859" column="73" selection-start-line="859" selection-start-column="73" selection-end-line="859" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/IntegralExchangeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2375">
-          <caret line="125" column="16" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework/yiilite.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10811">
-          <caret line="589" column="6" selection-start-line="589" selection-start-column="6" selection-end-line="589" selection-end-column="6" />
-          <folding>
-            <marker date="1452702914000" expanded="true" signature="264205:264282" ph="CREATE TABLE... ${$this-&gt;quoteTableName($table)}" />
-            <marker date="1452702914000" expanded="true" signature="264542:264553" ph="DROP TABLE $... " />
-            <marker date="1452702914000" expanded="true" signature="264754:264851" ph="ALTER TABLE ${$this-&gt;quoteTableName($table)}... " />
-            <marker date="1452702914000" expanded="true" signature="264947:265009" ph="ALTER TABLE ${$this-&gt;quoteTableName($table)}... " />
-            <marker date="1452702914000" expanded="true" signature="265113:265220" ph="ALTER TABLE ${$this-&gt;quoteTableName($table)}... " />
-            <marker date="1452702914000" expanded="true" signature="265323:265466" ph="ALTER TABLE ${$this-&gt;quoteTableName($table)}... " />
-            <marker date="1452702914000" expanded="true" signature="265979:266213" ph="ALTER TABLE ${$this-&gt;quoteTableName($table)}... " />
-            <marker date="1452702914000" expanded="true" signature="266399:266465" ph="ALTER TABLE ${$this-&gt;quoteTableName($table)}... " />
-            <marker date="1452702914000" expanded="true" signature="267366:267520" ph="ALTER TABLE ${$this-&gt;quoteTableName($table)}... " />
-            <marker date="1452702914000" expanded="true" signature="267585:267651" ph="ALTER TABLE ${$this-&gt;quoteTableName($table)}... " />
-            <marker date="1452702914000" expanded="true" signature="268423:268463" ph="SELECT MAX(`... $" />
-            <marker date="1452702914000" expanded="true" signature="268621:268688" ph="UPDATE sqlit... " />
-            <marker date="1452702914000" expanded="true" signature="268955:269032" ph="SELECT DISTI... sqlite_master" />
-            <marker date="1452702914000" expanded="true" signature="271094:271154" ph="ALTER TABLE ${$this-&gt;quoteTableName($table)}... " />
-            <marker date="1452702914000" expanded="true" signature="271246:271258" ph="DELETE FROM " />
-            <marker date="1452702914000" expanded="true" signature="289808:289953" ph="INSERT INTO ${$this-&gt;_connection-&gt;quoteTableName($table)}... " />
-            <marker date="1452702914000" expanded="true" signature="290777:290789" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework/yiic">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding>
-            <element signature="e#25#311#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework/yii.php" />
-    <entry file="file://$PROJECT_DIR$/protected/yiic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/yiic">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/crm/UserUC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1472177431672" expanded="true" signature="25731:25855" ph="SELECT u.*, wq_user_coupons" />
-            <marker date="1472177431672" expanded="true" signature="164273:164407" ph="select sum(o... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="164600:164736" ph="select sum(u... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="164925:165057" ph="select sum(c... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="165248:165382" ph="select sum(s... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="168320:168475" ph="select sum(o... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="168668:168825" ph="select sum(u... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="169014:169167" ph="select sum(c... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="169358:169513" ph="select sum(s... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="172472:172627" ph="select sum(o... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="172820:172977" ph="select sum(u... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="173166:173319" ph="select sum(c... wq_order" />
-            <marker date="1472177431672" expanded="true" signature="173510:173665" ph="select sum(s... wq_order" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserSetController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserGradeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15067">
-          <caret line="793" column="24" selection-start-line="793" selection-start-column="24" selection-end-line="793" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/crm/U.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6992">
-          <caret line="368" column="13" selection-start-line="327" selection-start-column="4" selection-end-line="375" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/CrmModule.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/layouts/column1.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -915,7 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-13284">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -923,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-171">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -931,7 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6647">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -939,11 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1425">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1472177433701" expanded="true" signature="2616:2622" ph=" " />
-            <marker date="1472177433701" expanded="true" signature="2678:2684" ph=" " />
-            <marker date="1472177433701" expanded="true" signature="2685:2691" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -951,11 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1472177433705" expanded="true" signature="2638:2644" ph=" " />
-            <marker date="1472177433705" expanded="true" signature="2704:2710" ph=" " />
-            <marker date="1472177433705" expanded="true" signature="2711:2717" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -970,11 +973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-228">
           <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding>
-            <marker date="1473315723698" expanded="true" signature="7530:7536" ph=" " />
-            <marker date="1473315723698" expanded="true" signature="7596:7602" ph=" " />
-            <marker date="1473315723698" expanded="true" signature="7603:7609" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -982,7 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
           <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -990,11 +987,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1710">
           <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding>
-            <marker date="1473320961647" expanded="true" signature="5394:5400" ph=" " />
-            <marker date="1473320961647" expanded="true" signature="5460:5466" ph=" " />
-            <marker date="1473320961647" expanded="true" signature="5467:5473" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1006,23 +998,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/class/crm/UserC.php">
+    <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/user/userDetail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67184">
-          <caret line="3536" column="47" selection-start-line="3500" selection-start-column="7" selection-end-line="3542" selection-end-column="9" />
-          <folding>
-            <marker date="1473238778572" expanded="true" signature="132245:132479" ph="select sum(o... wq_order" />
-          </folding>
+        <state relative-caret-position="2660">
+          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/components/CrmController.php">
+    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/IntegralController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21622">
-          <caret line="1138" column="5" selection-start-line="1138" selection-start-column="5" selection-end-line="1138" selection-end-column="5" />
-          <folding>
-            <marker date="1473323754692" expanded="true" signature="44042:44276" ph="select sum(o... wq_order" />
-          </folding>
+        <state relative-caret-position="534">
+          <caret line="219" column="32" selection-start-line="219" selection-start-column="32" selection-end-line="219" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1030,18 +1016,222 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1995">
           <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Pictures/UserGroupController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1349">
+          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Pictures/CrmController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21280">
+          <caret line="1120" column="29" selection-start-line="1117" selection-start-column="4" selection-end-line="1309" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserSetController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Pictures/CrmController(1).php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/class/config/constant/gjConstant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="2853" column="49" selection-start-line="2853" selection-start-column="49" selection-end-line="2853" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/UserGradeDraft.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/UserController(1).php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1596">
+          <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/UserController(1)(3).php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1482">
+          <caret line="80" column="32" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/UserController(1)(2).php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Videos/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3306">
+          <caret line="176" column="68" selection-start-line="176" selection-start-column="68" selection-end-line="176" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserGradeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="38" column="43" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/crm/components/CrmController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54625">
+          <caret line="2875" column="1" selection-start-line="2875" selection-start-column="1" selection-end-line="2875" selection-end-column="1" />
           <folding>
-            <marker date="1473315905799" expanded="true" signature="5292:5298" ph=" " />
-            <marker date="1473315905799" expanded="true" signature="5358:5364" ph=" " />
-            <marker date="1473315905799" expanded="true" signature="5365:5371" ph=" " />
+            <marker date="1474140200588" expanded="true" signature="29747:30014" ph="SELECT SUM(r... wq_refund_record" />
+            <marker date="1474140200588" expanded="true" signature="30075:30338" ph="SELECT order... wq_order" />
+            <marker date="1474140200588" expanded="true" signature="30392:30838" ph="SELECT id, S... wq_user" />
+            <marker date="1474140200588" expanded="true" signature="32587:32769" ph="SELECT SUM(r... wq_refund_record" />
+            <marker date="1474140200588" expanded="true" signature="32807:33061" ph="SELECT order... wq_order" />
+            <marker date="1474140200588" expanded="true" signature="33114:33439" ph="SELECT id, S... wq_user" />
+            <marker date="1474140200588" expanded="true" signature="33502:33597" ph="SELECT id, u... wq_order" />
+            <marker date="1474140200588" expanded="true" signature="33659:33977" ph="SELECT wq_us... wq_user" />
+            <marker date="1474140200588" expanded="true" signature="34026:34373" ph="SELECT paymo... ${$user_sql}" />
+            <marker date="1474140200588" expanded="true" signature="36269:36535" ph="SELECT SUM(r... wq_refund_record" />
+            <marker date="1474140200588" expanded="true" signature="36597:37420" ph="SELECT id, o... wq_user" />
+            <marker date="1474140200588" expanded="true" signature="36760:37055" ph="SELECT order... wq_order" />
+            <marker date="1474140200588" expanded="true" signature="37458:37668" ph="SELECT id, u... ${$order_sql}" />
+            <marker date="1474140200588" expanded="true" signature="39375:39436" ph="SELECT wecha... wq_order" />
+            <marker date="1474140200588" expanded="true" signature="39490:40037" ph="SELECT id, c... wq_user" />
+            <marker date="1474140200588" expanded="true" signature="41741:41821" ph="SELECT user_... " />
+            <marker date="1474140200588" expanded="true" signature="41875:42369" ph="SELECT id, c... wq_user" />
+            <marker date="1474140200588" expanded="true" signature="43723:43794" ph="SELECT pay_t... wq_order" />
+            <marker date="1474140200588" expanded="true" signature="43848:44544" ph="SELECT id,ti... id" />
+            <marker date="1474140200588" expanded="true" signature="44028:44440" ph="SELECT id, o... wq_user" />
+            <marker date="1474140200588" expanded="true" signature="48221:48231" ph="..." />
+            <marker date="1474140200588" expanded="true" signature="48418:48428" ph="..." />
+            <marker date="1474140200588" expanded="true" signature="48615:48625" ph="..." />
+            <marker date="1474140200588" expanded="true" signature="48808:48818" ph="..." />
+            <marker date="1474140200588" expanded="true" signature="49029:49039" ph="..." />
+            <marker date="1474140200588" expanded="true" signature="49210:49220" ph="..." />
+            <marker date="1474140200588" expanded="true" signature="49525:49535" ph="..." />
+            <marker date="1474140200588" expanded="true" signature="116706:116940" ph="select sum(o... wq_order" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/UserGrade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/UserGradeBak.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/mCenter/controllers/ShopManagementController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Store.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4351">
+          <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="545" column="32" selection-start-line="545" selection-start-column="32" selection-end-line="545" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/marketing/controllers/MarketingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="33" column="45" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/class/wq/MarketingClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2964">
+          <caret line="156" column="33" selection-start-line="155" selection-start-column="12" selection-end-line="156" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/mCenter/controllers/ShopMallHomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/gj_branch_20160812_for_yxgl_jcyx/protected/modules/crm/controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-779">
+          <caret line="243" column="184" selection-start-line="243" selection-start-column="178" selection-end-line="243" selection-end-column="210" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/class/oto/TradeC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2660">
+          <caret line="140" column="12" selection-start-line="140" selection-start-column="12" selection-end-line="154" selection-end-column="13" />
+          <folding>
+            <marker date="1472177432093" expanded="true" signature="6680:6741" ph="SELECT * FRO... ${$sql1}" />
+            <marker date="1472177432093" expanded="true" signature="30723:30784" ph="SELECT * FRO... ${$sql1}" />
+            <marker date="1472177432093" expanded="true" signature="47585:47646" ph="SELECT * FRO... ${$sql1}" />
+            <marker date="1472177432093" expanded="true" signature="66611:66672" ph="SELECT * FRO... ${$sql1}" />
+            <marker date="1472177432093" expanded="true" signature="83717:83778" ph="SELECT * FRO... ${$sql1}" />
+            <marker date="1472177432093" expanded="true" signature="101969:102030" ph="SELECT * FRO... ${$sql1}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/finance/controllers/FinanceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1007">
+          <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/user/userLists.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2584">
-          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+        <state relative-caret-position="6232">
+          <caret line="328" column="286" selection-start-line="328" selection-start-column="286" selection-end-line="328" selection-end-column="286" />
           <folding>
             <marker date="1473324008303" expanded="true" signature="18125:18131" ph=" " />
             <marker date="1473324008303" expanded="true" signature="18191:18197" ph=" " />
@@ -1050,49 +1240,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/user/userInfo.php">
+    <entry file="file://$PROJECT_DIR$/protected/modules/finance/views/finance/tradeList.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2185">
-          <caret line="115" column="49" selection-start-line="115" selection-start-column="49" selection-end-line="115" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserGroupController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7277">
-          <caret line="383" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="383" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/user/userDetail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2660">
-          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1473316581817" expanded="true" signature="8103:8109" ph=" " />
-            <marker date="1473316581817" expanded="true" signature="8169:8175" ph=" " />
-            <marker date="1473316581817" expanded="true" signature="8176:8182" ph=" " />
+            <marker date="1472177435377" expanded="true" signature="20985:20991" ph=" " />
+            <marker date="1472177435377" expanded="true" signature="21053:21059" ph=" " />
+            <marker date="1472177435377" expanded="true" signature="21065:21071" ph=" " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/IntegralController.php">
+    <entry file="file://$PROJECT_DIR$/../sadsa.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2850">
-          <caret line="219" column="32" selection-start-line="219" selection-start-column="32" selection-end-line="219" selection-end-column="32" />
+        <state relative-caret-position="0">
+          <caret line="0" column="2185" selection-start-line="0" selection-start-column="2185" selection-end-line="0" selection-end-column="2185" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/fx_branch_20160812_for_test/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="394" column="0" selection-start-line="394" selection-start-column="0" selection-end-line="394" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/crm/views/user/userInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3230">
+          <caret line="170" column="45" selection-start-line="170" selection-start-column="45" selection-end-line="170" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/crm/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2629">
-          <caret line="753" column="0" selection-start-line="753" selection-start-column="0" selection-end-line="753" selection-end-column="0" />
+        <state relative-caret-position="5586">
+          <caret line="296" column="32" selection-start-line="296" selection-start-column="8" selection-end-line="296" selection-end-column="32" />
           <folding>
-            <marker date="1473323754892" expanded="true" signature="30944:30979" ph="delete from " />
-            <marker date="1473323754892" expanded="true" signature="31794:31832" ph="delete from " />
+            <marker date="1474250437088" expanded="false" signature="9:17" ph=" 用户管理控制器 ..." />
+            <marker date="1474250437088" expanded="true" signature="37252:37287" ph="delete from " />
+            <marker date="1474250437088" expanded="true" signature="38884:38922" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11666">
+          <caret line="616" column="63" selection-start-line="616" selection-start-column="20" selection-end-line="616" selection-end-column="63" />
+          <folding>
+            <marker date="1474304686069" expanded="true" signature="36798:36833" ph="delete from " />
+            <marker date="1474304686069" expanded="true" signature="38430:38468" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/gj_Release/protected/modules/crm/controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1729">
+          <caret line="93" column="63" selection-start-line="87" selection-start-column="8" selection-end-line="101" selection-end-column="0" />
+          <folding>
+            <marker date="1474289665702" expanded="true" signature="34145:34180" ph="delete from " />
+            <marker date="1474289665702" expanded="true" signature="35777:35815" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/class/crm/UserC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60458">
+          <caret line="3182" column="24" selection-start-line="3182" selection-start-column="24" selection-end-line="3182" selection-end-column="24" />
+          <folding>
+            <marker date="1473238778572" expanded="true" signature="132245:132479" ph="select sum(o... wq_order" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/gj_branch_20160808_for_test/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="878" column="52" selection-start-line="878" selection-start-column="52" selection-end-line="878" selection-end-column="52" />
+          <folding>
+            <marker date="1474380225832" expanded="true" signature="36486:36521" ph="delete from " />
+            <marker date="1474380225832" expanded="true" signature="38118:38156" ph="delete from " />
           </folding>
         </state>
       </provider>

@@ -9,8 +9,8 @@
             </div>
             <div class="bus-contant new_group_wrap">
                 <div class="btn_l level_r">
-                  <!--<a href="<?php echo $this->createUrl('addUserGroupSearch'); ?>" class="btn_com_gray btn_gray_group">根据条件筛选</a>-->
-                  <a href="<?php //echo Yii::app()->createUrl('mCenter/user/addUserGroupSelf'); ?>" class="btn_com_blue btn_blue_group">修改分组</a>
+                  <!--<a href="<?php /*echo $this->createUrl('addUserGroupSearch'); */?>" class="btn_com_gray btn_gray_group">根据条件筛选</a>
+                  <a href="<?php /*echo Yii::app()->createUrl('mCenter/user/addUserGroupSelf'); */?>" class="btn_com_blue btn_blue_group">修改分组</a>-->
                 </div>
                <?php echo CHtml::beginForm('','post'); ?>
                  <div class="filtrate_group">
@@ -18,7 +18,7 @@
                         <div class="new_group_item">
                             <h3 class="first_title">分组名称</h3>
                             <div class="new_group_item_c">
-                                <?php echo CHtml::textField('UserGroup[name]',$model['name'],array('class'=>'text_group','placeholder'=>'请输入分组名称，最多9个汉字')); ?>
+                                <?php echo CHtml::textField('UserGroup[name]',$model['name'],array('class'=>'text_group','placeholder'=>'请输入分组名称，最多9个汉字','maxlength'=>'9')); ?>
                                 <?php if(Yii::app()->user->hasFlash('name_error')){ ?>
                                 <span class="error1"><?php echo Yii::app()->user->getFlash('name_error'); ?></span>
                                 <?php }?>

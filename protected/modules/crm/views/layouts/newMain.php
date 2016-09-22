@@ -10,9 +10,16 @@
     <link rel="stylesheet" type="text/css" href="<?php echo WQ_STATIC_STYLES?>style-gj.css">
     <link rel="stylesheet" href="<?php echo WQ_STATIC_MEDIA?>uploadify/uploadify.css">
 <!--    <script src="--><?php ///*echo WQ_STATIC_JS*/?><!--lib/jquery.min.js"></script>-->
+<<<<<<< .working
     <script type="text/javascript" src="<?php echo WQ_STATIC_JS?>lib/jquery.min.js"></script>
+||||||| .merge-left.r5726
+    <script src="<?php echo WQ_STATIC_JS?>lib/jquery.min.11468602.js"></script>
+=======
+    <script src="<?php echo WQ_STATIC_JS?>lib/jquery.min.js"></script>
+>>>>>>> .merge-right.r5741
     <script type="text/javascript" src="<?php echo WQ_STATIC_MEDIA?>uploadify/jquery.uploadify.min.js"></script>
     <script src="<?php echo WQ_STATIC_MEDIA?>js/layer/layer.js"></script>
+<<<<<<< .working
     <script src="<?php echo WQ_STATIC_JS?>main.js"></script>
     <script src="<?php echo WQ_STATIC_JS?>lib/jquery.validate.js"></script>
     <script src="<?php echo WQ_STATIC_JS?>lib/messages_zh.min.js"></script>
@@ -22,6 +29,27 @@
     <script type="text/javascript" src="<?php echo WQ_STATIC_JS?>lib/daterangepicker/daterangepicker.js"></script>
     <script src="<?php echo WQ_STATIC_JS?>lib/bootstrap-datepicker/bootstrap-datepicker.js"></script>
     <script src="<?php echo WQ_STATIC_JS?>lib/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
+||||||| .merge-left.r5726
+    <script src="<?php echo WQ_STATIC_JS?>main.59348484.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/jquery.validate.37393e71.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/messages_zh.min.6979ac84.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/echarts.min.a926dbf4.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/select2.min.e87ca4c3.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/daterangepicker/moment.min.8f78519e.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/daterangepicker/daterangepicker.8f3c2c90.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/bootstrap-datepicker/bootstrap-datepicker.cfa0100d.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.d64daf7a.js"></script>
+=======
+    <script src="<?php echo WQ_STATIC_JS?>main.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/jquery.validate.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/messages_zh.min.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/echarts.min.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/select2.min.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/daterangepicker/daterangepicker.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/daterangepicker/daterangepicker.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="<?php echo WQ_STATIC_JS?>lib/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
+>>>>>>> .merge-right.r5741
     <!--[if lt IE 9]>
     <script src="<?php echo WQ_STATIC_JS?>lib/html5shiv.min.js"></script>
     <script src="<?php echo WQ_STATIC_JS?>lib/respond.min.js"></script>
@@ -37,9 +65,9 @@
             <!--     	<div class="left">玩券管家：您专属的O2O信息化解决方案</div> -->
             <div class="right">
                 欢迎，<?php echo Yii::app() -> session['merchant_name']?>    您当前的版本是<?php echo Yii::app()->session['type_name']?> <?php if(Yii::app()->session['type_id'] == WANQUAN_TYPE_MARKETING){?>(<?php if(Yii::app()->session['if_tryout']== IF_TRYOUT_YES){?>试用版,<?php }?>于<?php echo date('Y年m月d日',strtotime(Yii::app ()->session ['time_limit']));?>到期)<?php }?>，
-                <a href="javascript:;" class="blue">升级</a>
+                <!-- <a href="javascript:;" class="blue">升级</a>
                 <a target="_blank" href="<?php echo Yii::app()->createUrl('mCenter/downLoad/downLoad',array('downLoadType'=>DOWNLOAD_TYPE_DOCUMENT))?>" class="blue">帮助中心</a>
-                <a href="<?php echo Yii::app()->createUrl('mCenter/auth/Logout')?>">安全退出</a>
+                 --><a href="<?php echo Yii::app()->createUrl('mCenter/auth/Logout')?>">安全退出</a>
             </div>
         </div>
     </div>

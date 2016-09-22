@@ -9,6 +9,9 @@
 <script type="text/javascript">
     $(document).ready(main_obj.list_init);
     $(function(){
+        $('.daterange_picker, #birthday').click(function () {
+            window.parent.callParAutoResize("main",$("body").height());
+        });
         $('#birthday').daterangepicker({
             timePicker: false,
             format: 'MM/DD',
@@ -550,21 +553,25 @@
         $('#btn_save_before').attr('disabled', 'true');
     }
 
-    var save_group = function(jsonStr){
+    var save_group = function (jsonStr) {
         var index = layer.load(10);
         $.ajax({
             url: "<?php echo $this->createUrl('editGroup')?>",
             type: "post",
             async: true,
-            data: {json_str:jsonStr, id:'<?php echo $user_group->id?>'},
+            data: {json_str: jsonStr, id: '<?php echo $user_group->id?>'},
             success: function (data) {
-                if(data=='分组名已存在！')
-                    tips(data);
-                if(data=='OK')
+                layer.close(index);
+                if (data == '分组名已存在') {
+                    parent.window.delayHide('m-danger-warning', data, 1500);
+                }
+                if (data == 'OK') {
+                    parent.window.delayHide('m-succeed-icon', '保存成功', 1500);
                     window.self.location.href = '<?php echo $this->createUrl('userGroupList')?>';
+                }
             },
             error: function () {
-                tips("系统异常!");
+                parent.window.delayHide('m-danger-warning', '系统异常', 1500);
             }
         });
     };

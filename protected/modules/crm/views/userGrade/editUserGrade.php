@@ -219,6 +219,8 @@
     <!--会员卡弹出框end-->
     <script>
         $(document).ready(function(){
+      	   window.parent.callParAutoResize("main",$("body").height());
+           
             var length=$('#illustrate').val().length;
             $('.dd').html($('#illustrate').val().replace(/\n/g,'<br>'));
             var num = 255 - length;
@@ -237,7 +239,7 @@
 //             }else if($('#points4').attr('checked')){
 //             	showlayer();            	            	
 //             }
-            
+            $("#js_level #points1").trigger("click");
         });
         //点击取消的操作
         function card(){   
@@ -271,33 +273,33 @@
             <?php } else {?>
             	current_type = <?php echo $type ?> - 1;
             <?php }?>
-            var change_type = <?php echo $change_type ?>;
-            change_type = change_type - 1;
+//            var change_type = <?php #echo $change_type ?>;
+         //   change_type = change_type - 1;
             $js_radio.click(function() {
                 _index = $js_radio.index($js_radio.filter(":checked")), //获取选中状态的索引值
                 title = $(this).attr("title");
                 showLayer(_index);
-				if(_index != change_type){	
-	                if(_index != current_type ){
-	                	var index = layer.open({
-	                		offset: '300px'
-	                		  ,content: '确定修改会员等级条件吗？<br/>修改会员等级条件会使原有会员等级条件失效，需要重新设置并发布'
-	                		  ,btn: ['确定', '取消']
-	                		  ,yes: function(){
-	                		    //按钮【按钮一】的回调
-	                  		    clear_type('<?php echo($this->createUrl('ClearType'));?>');
-	                  		  	layer.close(index);
-	                		  },btn2: function(){
-	                		    //按钮【按钮二】的回调
-	                			  showLayer(current_type);
-	                		  }
-	                		  ,cancel: function(){ 
-	                		    //右上角关闭回调
-	                			  showLayer(current_type);
-	                		  }
-	                	});
-	                }
-				}
+//				if(_index != change_type){	
+//	                if(_index != current_type ){
+//	                	var index = layer.open({
+//	                		offset: '300px'
+//	                		  ,content: '确定修改会员等级条件吗？<br/>修改会员等级条件会使原有会员等级条件失效，需要重新设置并发布'
+//	                		  ,btn: ['确定', '取消']
+//	                		  ,yes: function(){
+//	                		    //按钮【按钮一】的回调
+//	                  		    clear_type('<?php #echo($this->createUrl('ClearType'));?>');
+//	                  		  	layer.close(index);
+//	                		  },btn2: function(){
+//	                		    //按钮【按钮二】的回调
+//	                			  showLayer(current_type);
+//	                		  }
+//	                		  ,cancel: function(){ 
+//	                		    //右上角关闭回调
+//	                			  showLayer(current_type);
+//	                		  }
+//	                	});
+//	                }
+//				}
             });
         
         function showLayer(_index){
@@ -314,14 +316,13 @@
                 s = s + $js_label.eq(i).width();
             }
             t_width = s + _index * 20; //获取弹出提示的三角需要偏离的位置
-            console.log(t_width);
             $js_layer_before.css({
                 "left": t_width
             });
             s = 0;
         };
         <?php if ($model['rule_type'] != 5){?>
-		var type = <?php echo $model['rule_type']?>;
+		var type = "<?php echo $model['rule_type']?>";
 		type = type-1;
         //默认显示设置
         showLayer(type);
@@ -352,7 +353,7 @@
             $("#cover_img").attr('src','<?php echo GJ_STATIC_IMAGES.'card/'?>'+imgs);
         }
         $('input[id=card_name]').change(function() { $('#membership_card_name').html($('#card_name').val()); });
-        $('input[id=usergradename]').change(function() { $('#dengji_card_name').html($('#usergradename').val()); });        
+        $('input[id=addUserGrade_usergradename]').change(function() { $('#dengji_card_name').html($('#addUserGrade_usergradename').val()); });        
         $('#illustrate').change(function(){$('.dd').html($('#illustrate').val().replace(/\n/g,'<br>'));});
         $('input[id=usergradediscount]').change(function(){
             var discount = $('input[id=usergradediscount]').val();
@@ -377,7 +378,7 @@
 		}
 		
         $(function(){
-            addUserGrade_usergradename('<?php echo($this->createUrl('CheckUserGrade'));?>');//会员等级名称输入框失去焦点判断输入是否正确
+            addUserGrade_usergradename('<?php echo($this->createUrl('CheckUserGrade'));?>','<?php echo $id?>');//会员等级名称输入框失去焦点判断输入是否正确
             addUserGrade_usergradediscount('<?php echo($this->createUrl('CheckUserGrade'));?>');//会员特权
             addUserGrade_usergradepoints_rule('<?php echo($this->createUrl('CheckUserGrade'));?>');//积分要求
             addUserGrade_usergradepoints_ratio('<?php echo($this->createUrl('CheckUserGrade'));?>');//积分规则

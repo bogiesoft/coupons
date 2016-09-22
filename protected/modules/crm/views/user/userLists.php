@@ -1,6 +1,7 @@
 <script type="text/javascript">
     $(document).ready(main_obj.list_init);
     $(function(){
+		window.parent.callParAutoResize("main",$("body").height());
         var now = new Date();
         $('#reg_time').daterangepicker({
             timePicker: false,
@@ -50,43 +51,62 @@
 			<div class="search_c">
 				<div class="search_c_item">
 					<span>会员等级</span>
-
+					<!-- 
+					<input type="checkbox" id="grade_0" name="grade[]"><label for="grade_0">粉丝</label>
+					<input type="checkbox" id="grade_1" name="grade[]"><label for="grade_1">普通会员</label>
+					<input type="checkbox" id="grade_2" name="grade[]"><label for="grade_2">黄金会员</label>
+					<input type="checkbox" id="grade_3" name="grade[]"> <label for="grade_3">钻石会员</label>
+					<input type="checkbox" id="grade_4" name="grade[]"> <label for="grade_4">至尊会员</label>
+					-->
 					<?php 
-
+// 					   print_r($user_grades);
 					?>
+					<div class='dd'>
 					<?php
 					   foreach ($user_grades as $k=>$v)
 					   {
-					       echo '<input type="checkbox" id="grade_'.$k.'" name="grade['.$k.']" value="'.$v['id'].'"';
+					       echo '<label for="grade_'.$k.'"><input type="checkbox" id="grade_'.$k.'" name="grade['.$k.']" value="'.$v['id'].'"';
 					       if(!empty($_GET['grade'][$k]))
 					           echo 'checked';
-					       echo '><label for="grade_'.$k.'">'.$v['name'].'</label>';
+					       echo '/>'.$v['name'].'</label>';
 					   }
 					
 					?>
+					</div>
 				</div>
 				<?php if(!empty($user_groups)){?>
 				<div class="search_c_item">
 					<span>客户分组</span>
-
+					<!--
+					<input type="checkbox" id="group_0" name="group[]"><label for="group_0">分组一</label>
+					<input type="checkbox" id="group_1" name="group[]"><label for="group_1">分组二</label>
+					<input type="checkbox" id="group_2" name="group[]"><label for="group_2">分组三</label>
+					<input type="checkbox" id="group_3" name="group[]"> <label for="group_3">分组四</label>
+					-->
 					<?php 
-
+// 					   var_dump(empty($user_groups));
 					?>
+                    <div class="dd">
 					<?php 
 					   foreach ($user_groups as $k=>$v)
 					   {
-					       echo '<input type="checkbox" id="group_'.$k.'" name="group['.$k.']" value="'.$v['id'].'"';
+					       echo '<label for="group_'.$k.'"><input type="checkbox" id="group_'.$k.'" name="group['.$k.']" value="'.$v['id'].'"';
 					       if(!empty($_GET['group'][$k]))
 					           echo 'checked';
-					       echo '><label for="group_'.$k.'">'.$v['name'].'</label>';
+					       echo '>'.$v['name'].'</label>';
 					   }
 					?>
+                    </div>
 				</div>
 				<?php }?>
 				<div class="search_c_item">
 					<div class="search_c_item_es search_c_item_t">
 						<span>性别</span>
-
+						<!--
+						<input type="checkbox" id="sex_0" name="sex[0]"><label for="sex_0">男</label>
+						<input type="checkbox" id="sex_1" name="sex[1]"><label for="sex_1">女</label>
+						<input type="checkbox" id="sex_2" name="sex[2]"> <label for="sex_2">未知</label>
+						-->
 						<input type="checkbox" name="sex[0]" id="sex_0" <?php echo isset($_GET['sex'][0]) && $_GET['sex'][0] == SEX_MALE ? 'checked="checked"' : ''?> value="<?php echo SEX_MALE?>"><label for="sex_0">男</label>
                         <input type="checkbox" name="sex[1]" id="sex_1" <?php echo isset($_GET['sex'][1]) && $_GET['sex'][1] == SEX_FEMALE ? 'checked="checked"' : ''?> value="<?php echo SEX_FEMALE?>"><label for="sex_1">女</label>
                         <input type="checkbox" name="sex[2]" id="sex_2" <?php echo isset($_GET['sex'][2]) && $_GET['sex'][2] == '3' ? 'checked="checked"' : ''?> value="<?php echo '3'?>"><label for="sex_2">未知</label>
@@ -103,7 +123,50 @@
 						</span>
 					</div>
 				</div>
-
+				<!--
+				<div class="search_c_item">
+					<span class="tag">地区</span>
+					<div class="search_c_item_tag">
+						<select class="iselect user_select" id="province">
+                            <option value="">-请选择省份-</option>
+                            <?php foreach ($province as $k => $v){?>
+                            <option value="<?php echo $v -> code?>"><?php echo $v-> name?></option>
+                            <?php }?>
+                        </select>
+                        <select class="iselect user_select" id="city">
+                            <option value="">-请选择城市-</option>
+                           
+                        </select>
+						<input type="button" class="tag_btn_default tag-btn_primary" value="确定" onclick="choseArea()"><em class="tips">支持多选</em>
+						<div class="area">
+							<?php 
+							   if(!empty($choseCities))
+							   {
+							       foreach ($choseCities as $k=>$v)
+							       {
+							           echo '<button type="button" class="tag_btn_default tag_btn_primary btn_area" onClick="this.parentNode.removeChild(this)">'
+                                            .'<em>'.$v['pname'].$v['cname'].'</em><input type="hidden" name="province[]" value="'.$v['pcode'].'">'
+                                            .'<input type="hidden" name="city[]" value="'.$v['ccode'].'"></button>';
+							       }
+							   }
+							?>
+						</div>
+					</div>
+				</div>
+				-->
+				<!--
+				<div class="search_c_item">
+					<span>客户价值</span>
+					<input type="checkbox" id="customer_value_0" name="customer_value[0]"><label for="customer_value_0">高度重要保持</label>
+					<input type="checkbox" id="customer_value_1" name="customer_value[1]"><label for="customer_value_1">重要保持</label>
+					<input type="checkbox" id="customer_value_2" name="customer_value[2]"><label for="customer_value_2">重要价值</label>
+					<input type="checkbox" id="customer_value_3" name="customer_value[3]"><label for="customer_value_3">重要发展</label>
+					<input type="checkbox" id="customer_value_4" name="customer_value[4]"> <label for="customer_value_4">重要挽留</label>
+					<input type="checkbox" id="customer_value_5" name="customer_value[5]"> <label for="customer_value_5">一般保持</label>
+					<input type="checkbox" id="customer_value_6" name="customer_value[6]"> <label for="customer_value_6">一般挽留</label>
+					<input type="checkbox" id="customer_value_7" name="customer_value[7]"> <label for="customer_value_7">一般发展</label>
+				</div>
+				-->
 				<div class="more_area">
 					<div class="search_c_item">
 						<div class="search_c_item_es search_c_item_t">
@@ -122,19 +185,19 @@
 					<div class="search_c_item">
 						<div class="search_c_item_es search_c_item_t">
 							<span>服务窗关注时间</span>
-
+							<!--<input type="text" class="text_group text_time">-->
 							<?php echo CHtml::textField('fw_time',isset($_GET['fw_time']) ? $_GET['fw_time'] : '',array('id'=>'fw_time','class'=>'text_group text_time','readonly'=>"readonly")); ?>
 						</div>
 						<div class="search_c_item_es">
 							<span>公众号关注时间</span>
-
+							<!--<input type="text" class="text_group text_time">-->
 							<?php echo CHtml::textField('wx_time',isset($_GET['wx_time']) ? $_GET['wx_time'] : '',array('id'=>'wx_time','class'=>'text_group text_time','readonly'=>"readonly")); ?>
 						</div>
 					</div>
 					<div class="search_c_item">
 						<div class="search_c_item_es search_c_item_t">
 							<span>注册会员时间</span>
-
+							<!--<input type="text" class="text_group text_time">-->
 							<?php echo CHtml::textField('reg_time',isset($_GET['reg_time']) ? $_GET['reg_time'] : '',array('id'=>'reg_time','class'=>'text_group text_time','readonly'=>"readonly")); ?>
 						</div>
 					</div>
@@ -178,9 +241,34 @@
 							</div>
 						</div>
 					</div>
-
+					<!--
+					<div class="search_c_item">
+						<span class="tag">标签</span>
+						<div class="search_c_item_tag">
+							<div class="tag-item">
+								<input type="checkbox" id="tag_0" name="tag[0]"><label for="tag_0" class="tag_text">消费能力：</label>
+								<input type="checkbox" id="tag_0_0" name="tag[0][0]"><label for="tag_0_0">低消费</label>
+								<input type="checkbox" id="tag_0_1" name="tag[0][1]"><label for="tag_0_1">高消费</label>
+							</div>
+							<div class="tag-item">
+								<input type="checkbox" id="tag_1" name="tag[1]"><label for="tag_1" class="tag_text">流失情况：</label>
+								<input type="checkbox" id="tag_1_0" name="tag[1][0]"><label for="tag_1_0">未流失</label>
+								<input type="checkbox" id="tag_1_1" name="tag[1][1]"><label for="tag_1_1">流失客户</label>
+							</div>
+							<div class="tag-item">
+								<input type="checkbox" id="tag_2" name="tag[2]"><label for="tag_2" class="tag_text">消费频次：</label>
+								<input type="checkbox" id="tag_2_0" name="tag[2][0]"><label for="tag_2_0">散客</label>
+								<input type="checkbox" id="tag_2_1" name="tag[2][1]"><label for="tag_2_1">常客</label>
+							</div>
+						</div>
+					</div>
+					-->
 				</div>
-
+				<!--
+				<div class="user_search">
+					<input type="button" value="更多选项" class="btn_com_blue btn_filtrate">
+				</div>
+				-->
 				<div class="btn_filtrate_wrap">
                     <a href="javascript:;" class="btn_filtrate">更多选项</a>
                 </div>
@@ -231,9 +319,9 @@
                         <span onclick="integdesc()">积分<i id="integs" style="display: none"></i></span>
                         <?php } ?>   
                         <?php if(isset($_GET['Focus']) && $_GET['Focus'] == 'desc') { ?>
-                        <span onclick="Focusasc()">关注时间<i id="Focuss" style="display: none"></i></span>
+                        <span onclick="Focusasc()">微信关注时间<i id="Focuss" style="display: none"></i></span>
                         <?php } else { ?>
-                        <span onclick="Focusdesc()">关注时间<i id="Focuss" style="display: none"></i></span>
+                        <span onclick="Focusdesc()">微信关注时间<i id="Focuss" style="display: none"></i></span>
                         <?php } ?>
                         
                         <?php if(isset($_GET['regist']) && $_GET['regist'] == 'desc') { ?>
@@ -241,18 +329,37 @@
                         <?php } else { ?>
                         <span onclick="registdesc()">注册时间<i id="Regists" style="display: none"></i></span>
                         <?php } ?>
-
-
+                        <!--
+                        <?php if(isset($_GET['consumption']) && $_GET['consumption'] == 'desc') { ?>
+                        <span onclick="consumptionasc()">消费时间<i id="consumptions" style="display: none"></i></span>
+                        <?php } else { ?>
+                        <span onclick="consumptiondesc()">消费时间<i id="consumptions" style="display: none"></i></span>
+                        <?php } ?>
+                        
+                        <?php if(isset($_GET['xf_money']) && $_GET['xf_money'] == 'desc') { ?>
+                        <span onclick="xf_moneyasc()">累计消费金额<i id="xf_moneys" style="display: none"></i></span>
+                        <?php } else { ?>
+                        <span onclick="xf_moneydesc()">累计消费金额<i id="xf_moneys" style="display: none"></i></span>
+                        <?php } ?>
+                        -->
+                        <!--
+						<span>年龄<i></i></span> 
+						<span>积分<i></i></span>
+						<span>关注时间<i></i></span>
+						<span>注册时间<i></i></span>
+						<span>消费时间<i></i></span>
+						<span>累计消费金额<i></i></span>
+						-->
 					</div>
 				</div>
 				<div class="user_list_top user_list_top_second">
 					<ul class="user_list_th">
-
+						<li><!--<span>用户信息</span>--></li>
 						<li><span>用户信息</span></li>
 						<li><span>会员信息</span></li>
 						<li><span>关注时间</span></li>
 						<li><span>最近消费</span></li>
-
+						<!--<li><span>累计消费金额</span></li>-->
 					</ul>
 				</div>
 				
@@ -338,7 +445,10 @@
                            <span><?php echo $v['last_trade_time'] ?></span>
                        <?php } ?>
 					</div>
-
+                        <!--<div class="td_item">
+                            <span>&nbsp;</span>
+                            <span><?php /*echo $v['total_trade']; */?></span>
+                        </div>-->
 				    </a>
 				</div>
 				<?php } } ?>
@@ -607,7 +717,18 @@ if (! empty($_GET['store_id']) || ! empty($_GET['fw_time']) || ! empty($_GET['re
         $('#consumptions').toggleClass("arrow_up_active");
         $('#sort').toggleClass("arrow_up_active");
     <?php } ?>
-
+        //消费能力降序
+//        $('#Ability').click(function(e){
+//            $('input[name=sort]').val('');
+//            $('input[name=integ]').val('');
+//            $('input[name=Focus]').val('');
+//            $('input[name=consumption]').val('');
+//            $('input[name=Ability]').val('desc');
+//            document.getElementById("search_form").submit();        
+//        });
+//        <?php //if(!empty($_GET['Ability'])) { ?>
+//        $('#Abilitys').show();
+//        <?php //} ?>
     //年龄段必须从小到大输入
     var age_min = $('input[name=age_min]').val();
     var age_max = $('input[name=age_max]').val(); 

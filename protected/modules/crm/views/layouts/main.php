@@ -71,9 +71,9 @@
 	<!--     	<div class="left">玩券管家：您专属的O2O信息化解决方案</div> -->
 	        <div class="right">
 		        欢迎，<?php echo Yii::app() -> session['merchant_name']?>    您当前的版本是<?php echo Yii::app()->session['type_name']?> <?php if(Yii::app()->session['type_id'] == WANQUAN_TYPE_MARKETING){?>(<?php if(Yii::app()->session['if_tryout']== IF_TRYOUT_YES){?>试用版,<?php }?>于<?php echo date('Y年m月d日',strtotime(Yii::app ()->session ['time_limit']));?>到期)<?php }?>，
-		        <a href="javascript:;" class="blue">升级</a>    
+		        <!-- <a href="javascript:;" class="blue">升级</a>    
 		        <a target="_blank" href="<?php echo Yii::app()->createUrl('mCenter/downLoad/downLoad',array('downLoadType'=>DOWNLOAD_TYPE_DOCUMENT))?>" class="blue">帮助中心</a>     
-		        <a href="<?php echo Yii::app()->createUrl('mCenter/auth/Logout')?>">安全退出</a>
+		         --><a href="<?php echo Yii::app()->createUrl('mCenter/auth/Logout')?>">安全退出</a>
 	        </div>
 	    </div>
 	</div>

@@ -60,7 +60,24 @@
                     <?php } else {?>
                     <p class="member_rank_status">该用户尚未注册为会员</p>
                     <?php }?>
-
+                    <!-- 
+                        <div class="user_growth">
+                        <span class="user_growth_title">会员成长记录</span>
+                        <div class="user_growth_status">
+                            <input type="submit" value="普通会员" class="growth_status_btn btn_gray">
+                            <p>2015-06-16 16:25:14</p>
+                        </div>
+                        <div class="user_growth_status">
+                            <input type="submit" value="中级会员" class="growth_status_btn btn_blue">
+                            <p>2015-06-16 16:25:14</p>
+                        </div>
+                        <div class="user_growth_status">
+                            <input type="submit" value="高级会员" class="growth_status_btn btn_orange">
+                            <p>2015-06-16 16:25:14</p>
+                        </div>
+                    </div>
+                </div>
+                     -->
                     
                 <div class="user_detail_item">
                     <h3>更多信息</h3>
@@ -138,7 +155,48 @@
                         </table>
                     </div>
                 </div>
-
+                <!-- 
+                <div class="user_detail_item">
+                    <h3>推送记录</h3>
+                    <table cellspacing="0" cellpadding="0" width="100%" class="push_record_table">
+                        <tbody>
+                            <tr class="order-title">
+                                <td align="center" nowrap="nowrap">消息类型</td>
+                                <td align="center" nowrap="nowrap">发送对象</td>
+                                <td align="center" nowrap="nowrap">发送时间</td>
+                                <td align="center" nowrap="nowrap">操作</td>
+                            </tr>
+                            <tr>
+                                <td align="center" width="40%">
+                                    <div class="bcgItem clearfix">
+                                        <div class="htcon"><img src="images/pro.png"></div>
+                                        <div class="text">
+                                            <dl>
+                                                <dt>图文消息</dt>
+                                                <dt>消息标题</dt>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td align="center">
+                                    <dl>
+                                        <dt>微信公众号</dt>
+                                        <dt>支付宝服务窗</dt>
+                                        <dt>全部分组</dt>
+                                    </dl>
+                                </td>
+                                <td align="center">2016-01-06 11:09:41</td>
+                                <td align="center">
+                                    <dl class="operate">
+                                        <dt>详情</dt>
+                                    </dl>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                 -->
                 
             <br>
                 <div style="float: right">

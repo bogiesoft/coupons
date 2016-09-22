@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    $(document).ready(main_obj.list_init);
+    //$(document).ready(main_obj.list_init);
 </script>
 <body>
 <div class="kkfm_r_inner">
@@ -50,17 +50,19 @@
                     <?php }?>
                 <?php }?>
             </table>
-            <div class="r">
-                <div class="page1">
-                    <?php $this -> widget('CLinkPager',array(
-                        'pages'=>$pages,
-                        'header'=>'共&nbsp;<strong class="orange">'.$pages -> getItemCount().'</strong>&nbsp;条&nbsp;',
-                        'prevPageLabel' => '上一页',
-                        'nextPageLabel'=>'下一页',
-                        'maxButtonCount'=>8
-                    ));?>
+            <?php if(!empty($list)){ ?>
+                <div class="r">
+                    <div class="page1">
+                        <?php $this -> widget('CLinkPager',array(
+                            'pages'=>$pages,
+                            'header'=>'共&nbsp;<strong class="orange">'.$pages -> getItemCount().'</strong>&nbsp;条&nbsp;',
+                            'prevPageLabel' => '上一页',
+                            'nextPageLabel'=>'下一页',
+                            'maxButtonCount'=>8
+                        ));?>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </div>
